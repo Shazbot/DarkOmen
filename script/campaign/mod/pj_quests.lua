@@ -1,12 +1,16 @@
 PJ_QUESTS = PJ_QUESTS or {}
 local mod = PJ_QUESTS
 
-local digForComponent = mod.digForComponent
-
 mod.states = {
 	game_start = "game_start",
 	in_sjok = "in_sjok",
 	after_shipwreck = "after_shipwreck",
+	in_kraka_drak = "in_kraka_drak",
+	in_kraka_ravn = "in_kraka_ravn",
+	in_drak_after_beastmen = "in_drak_after_beastmen",
+	in_drak_after_chaos = "in_drak_after_chaos",
+	after_beastmen_camp = "after_beastmen_camp",
+	after_chaos_warp = "after_chaos_warp",
 }
 
 mod.current_state = mod.current_state or mod.states.game_start
@@ -84,6 +88,12 @@ cm:add_first_tick_callback(function()
 	mod.missions_list = {
 		game_start = {mod.move_mission_sjoktraken},
 		in_sjok = {mod.mission_sjoktraken_shipwreck},
-		after_shipwreck = {mod.move_mission_kraka_drak, mod.mission_last_hope_inn}
+		after_shipwreck = {mod.move_mission_kraka_drak, mod.mission_last_hope_inn},
+		in_kraka_drak = {},
+		in_kraka_ravn = {},
+		in_drak_after_beastmen = {},
+		in_drak_after_chaos = {},
+		after_beastmen_camp = {},
+		after_chaos_warp = {},
 	}
 end)
