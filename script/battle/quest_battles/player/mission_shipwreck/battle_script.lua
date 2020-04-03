@@ -8,8 +8,8 @@
 ------------------------------------------- PRELOADS --------------------------------------------
 -------------------------------------------------------------------------------------------------
 load_script_libraries();
-
 bm = battle_manager:new(empire_battle:new());
+
 local gc = generated_cutscene:new(true);
 
 --generated_cutscene:add_element(sfx_name, subtitle, camera, min_length, wait_for_vo, wait_for_camera, loop_camera)
@@ -34,7 +34,9 @@ gb:set_cutscene_during_deployment(true);
 -------------------------------------------------------------------------------------------------
 ------------------------------------------ ARMY SETUP -------------------------------------------
 -------------------------------------------------------------------------------------------------
-
+ga_attacker_01 = gb:get_army(gb:get_player_alliance_num(), 1, "");
+ga_dwarf_1 = gb:get_army(gb:get_player_alliance_num(),"battle_shipwreck_dwf_ally");
+ga_nor_1 = gb:get_army(gb:get_non_player_alliance_num(),"battle_shipwreck_nor");
 
 -------------------------------------------------------------------------------------------------
 ----------------------------------------- ARMY TELEPORT -----------------------------------------
@@ -51,6 +53,16 @@ gb:set_cutscene_during_deployment(true);
 -------------------------------------------------------------------------------------------------
 ------------------------------------------ ORDERS -------------------------------------------
 -------------------------------------------------------------------------------------------------
+ga_dwarf_1:message_on_casualties("dwarf_1_dying", 0.5);
+ga_dwarf_1:message_on_shattered_proportion("dwarf_1_dead", 1);
+
+ga_nor_1:message_on_casualties("nor_1_dying", 0.5);
+ga_nor_1:message_on_shattered_proportion("nor_1_dead", 1);
+
+ga_dwarf_1:release_on_message("battle_started");
+
+gb:complete_objective_on_message("nor_1_dead", "mission_shipwrecke_objective_4_fail_message", 5);
+gb:fail_objective_on_message("dwarf_1_dying", "mission_shipwrecke_objective_4_fail_message", 5);
 
 -------------------------------------------------------------------------------------------------
 ------------------------------------------- OBJECTIVES ------------------------------------------
@@ -64,3 +76,4 @@ gb:set_objective_on_message("deployment_started", "mission_shipwrecke_objective_
 -------------------------------------------------------------------------------------------------
 
 gb:queue_help_on_message("battle_started", "mission_shipwrecke_objective_3_message", 8000, 2000, 1000);
+
