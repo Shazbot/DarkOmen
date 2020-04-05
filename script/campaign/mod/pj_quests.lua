@@ -78,17 +78,26 @@ end
 cm:add_first_tick_callback(function()
 	mod.current_state = cm:get_saved_value("pj_quests_current_state") or mod.current_state
 
-	mod.missions = {
+	mod.missions = { -- takes names from the db' key (issued in "settlement" + qb name) for the move-destination for move missions
+	-- Move missions --
 		move_mission_sjoktraken = mod.move_mission_sjoktraken,
-		mission_sjoktraken_shipwreck = mod.mission_sjoktraken_shipwreck,
 		move_mission_kraka_drak = mod.move_mission_kraka_drak,
-		mission_last_hope_inn = mod.mission_last_hope_inn,
+		move_mission_kraka_ravnsvake = mod.move_mission_kraka_ravnsvake,
+	-- QB missions --
+		mission_sjoktraken_shipwreck = mod.mission_sjoktraken_shipwreck,
+		mission_sjoktraken_the_last_hope_inn = mod.mission_sjoktraken_the_last_hope_inn,
+		mission_kraka_drak_beastmen_camp = mod.mission_kraka_drak_beastmen_camp,
+		mission_kraka_drak_chaos_warp = mod.mission_kraka_drak_chaos_warp,
+		mission_after_kraka_drak_mountain_pass = mod.mission_after_kraka_drak_mountain_pass,
+		mission_kraka_ravnsvake_fimir_bog = mod.mission_kraka_ravnsvake_fimir_bog,
+		mission_kraka_ravnsvake_icetrolls = mod.mission_kraka_ravnsvake_icetrolls,
 	}
 
-	mod.missions_list = {
+	mod.missions_list = { -- would like to have better names for these states
 		game_start = {mod.move_mission_sjoktraken},
-		in_sjok = {mod.mission_sjoktraken_shipwreck},
-		after_shipwreck = {mod.move_mission_kraka_drak, mod.mission_last_hope_inn},
+		in_sjok = {mod.mission_sjoktraken_shipwreck}, -- next line is curently filled to support testing, but not working 
+		after_shipwreck = {mod.move_mission_kraka_drak, mod.move_mission_kraka_ravnsvake, mod.mission_sjoktraken_the_last_hope_inn, mod.mission_kraka_drak_beastmen_camp, mod.mission_kraka_drak_chaos_warp, mod.mission_after_kraka_drak_mountain_pass, mod.mission_kraka_ravnsvake_fimir_bog, mod.mission_kraka_ravnsvake_icetrolls},
+		after_shipwreck_2 = {mod.move_mission_kraka_drak},
 		in_kraka_drak = {},
 		in_kraka_ravn = {},
 		in_drak_after_beastmen = {},

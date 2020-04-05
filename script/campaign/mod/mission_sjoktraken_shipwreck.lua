@@ -2,13 +2,12 @@ PJ_QUESTS = PJ_QUESTS or {}
 local mod = PJ_QUESTS
 
 mod.mission_sjoktraken_shipwreck_payload = function(char)
-	-- cm:teleport_to(cm:char_lookup_str(char), 696, 635, true)
 	cm:callback(function()
 		CampaignUI.ToggleCinematicBorders(true)
 		cm:stop_user_input(true)
 		cm:scroll_camera_from_current(true, 0.01, {464.257, 490.1476, 6, d_to_r(120), 3})
 		cm:callback(function()
-			cm:move_to(cm:char_lookup_str(char), 704,649, true)
+			cm:move_to(cm:char_lookup_str(char), 704,649, true) -- mission shipwreck
 			cm:scroll_camera_from_current(true, 3, {470.60491943359,500.95404052734, 5, d_to_r(120), 4})
 			cm:callback(function()
 				CampaignUI.ToggleCinematicBorders(false)
@@ -26,8 +25,8 @@ mod.mission_sjoktraken_shipwreck = {
 	ui_offsets = {725+103+80, 425+35+2-116-90-2},
 	parchment_text_offset = {-31, 0},
 	locs = {
-		title="Search for the missing Ironclad",
-		desc="The last of the northern Ironclads",
+		title="The Last of the Northern Ironclads ",
+		desc="The Last of the Northern Ironclads",
 		mission_desc = "The sea routes between Sjoktraken and the minor ports of the northerns holds are used to fortify and supply the realm. The last of the Ironclads, gifted by the high King og Barak Var ages ago, have gone missing. The port master of Sjoktraken, Thorin Seabborn have approached us, ininquiring our service. We are to travel two days north by the Draksfjord and search for the missing Ironclad and by any means secure it.",
 	},
 	icon = "ui/small_icon_quest_battle.png",

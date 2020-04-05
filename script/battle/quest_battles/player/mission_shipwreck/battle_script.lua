@@ -35,8 +35,8 @@ gb:set_cutscene_during_deployment(true);
 ------------------------------------------ ARMY SETUP -------------------------------------------
 -------------------------------------------------------------------------------------------------
 ga_attacker_01 = gb:get_army(gb:get_player_alliance_num(), 1, "");
-ga_dwarf_1 = gb:get_army(gb:get_player_alliance_num(),"battle_shipwreck_dwf_ally");
-ga_nor_1 = gb:get_army(gb:get_non_player_alliance_num(),"battle_shipwreck_nor");
+ga_dwarf_1 = gb:get_army(gb:get_player_alliance_num(),"battle_shipwreck_dwf_ally_army");
+ga_nor_1 = gb:get_army(gb:get_non_player_alliance_num(),"battle_shipwreck_nor_army");
 
 -------------------------------------------------------------------------------------------------
 ----------------------------------------- ARMY TELEPORT -----------------------------------------

@@ -10,7 +10,7 @@ mod.move_mission_sjoktraken_payload = function(char)
 	cm:apply_effect_bundle_to_characters_force("wh2_dlc11_bundle_immune_all_attrition", char:cqi(), -1, false)
 	cm:replenish_action_points(cm:char_lookup_str(char))
 
-	cm:teleport_to(cm:char_lookup_str(char), 710, 624, false)
+	cm:teleport_to(cm:char_lookup_str(char), 710, 624, false) -- start position
 	cm:callback(function()
 		cm:move_to(cm:char_lookup_str(char), 709, 624, false)
 	end, 0.5)
@@ -22,7 +22,7 @@ mod.move_mission_sjoktraken_payload = function(char)
 				cm:scroll_camera_from_current(true, 5, {474.847, 481.216, 5, d_to_r(120), 4})
 		end, 0.5)
 		cm:callback(function()
-				cm:move_to(cm:char_lookup_str(char), 696, 635, true)
+				cm:move_to(cm:char_lookup_str(char), 696,635, true) -- move_mission_sjoktraken
 				cm:scroll_camera_from_current(true, 3, {465.257, 490.1476, 5, d_to_r(120), 4})
 				cm:callback(function()
 						CampaignUI.ToggleCinematicBorders(false)
@@ -39,8 +39,8 @@ mod.move_mission_sjoktraken = {
 	ui_offsets = {725+103, 425+35+2-90-24},
 	locs = {
 		title="Move to Sjoktraken",
-		desc="Trek To Sjoktraken",
-		mission_desc = "Ironvein and his prospectors abandon the mines of Goromandny and head head towards Sjoktraken.",
+		desc="Move to Sjoktraken",
+		mission_desc = "The band of prospectors have joined up with the mining company, they will stay out here in the abandoned mines of the Goromadny mountains for the coming season.  Nilss looks at you and continuous. >They might find something of value or a small vein of precious metals, but i fear something else will find them before summer comes and the Sjoktraken mining company will fund a new expedition for they safe return< >We should head back, its not safe out here.  [The Frozen Feathered Ravens mercenary band heads towards Sjoktraken]",
 	},
 	icon = "ui/small_city_schem_frame_major.png",
 	payload = mod.move_mission_sjoktraken_payload,
