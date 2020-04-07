@@ -34,9 +34,11 @@ gb:set_cutscene_during_deployment(true);
 -------------------------------------------------------------------------------------------------
 ------------------------------------------ ARMY SETUP -------------------------------------------
 -------------------------------------------------------------------------------------------------
-ga_attacker_01 = gb:get_army(gb:get_player_alliance_num(), 1, "");
-ga_dwarf_1 = gb:get_army(gb:get_player_alliance_num(),"battle_shipwreck_dwf_ally_army");
-ga_nor_1 = gb:get_army(gb:get_non_player_alliance_num(),"battle_shipwreck_nor_army");
+ga_player = gb:get_army(gb:get_player_alliance_num(), 2, ""); -- player defender
+ga_battle_shipwreck_character_name_dwf_ally = gb:get_army(gb:get_player_alliance_num(),"battle_shipwreck_character_name_dwf_ally"); -- char/army
+ga_battle_shipwreck_character_name_nor = gb:get_army(gb:get_non_player_alliance_num(),"battle_shipwreck_character_name_nor"); -- char/army
+ga_battle_shipwreck_army_dwf_ally_unit_hammers = gb:get_army(gb:get_player_alliance_num(),"battle_shipwreck_army_dwf_ally_unit_hammers"); -- units
+ga_battle_shipwreck_army_dwf_ally_unit_rangers = gb:get_army(gb:get_player_alliance_num(),"battle_shipwreck_army_dwf_ally_unit_rangers"); -- units
 
 -------------------------------------------------------------------------------------------------
 ----------------------------------------- ARMY TELEPORT -----------------------------------------
@@ -53,27 +55,29 @@ ga_nor_1 = gb:get_army(gb:get_non_player_alliance_num(),"battle_shipwreck_nor_ar
 -------------------------------------------------------------------------------------------------
 ------------------------------------------ ORDERS -------------------------------------------
 -------------------------------------------------------------------------------------------------
-ga_dwarf_1:message_on_casualties("dwarf_1_dying", 0.5);
-ga_dwarf_1:message_on_shattered_proportion("dwarf_1_dead", 1);
+ga_battle_shipwreck_character_name_dwf_ally:message_on_shattered_proportion("battle_shipwreck_character_name_dwf_ally_dead", 1); -- Dead char
+ga_battle_shipwreck_army_dwf_ally_unit_hammers:message_on_casualties("battle_shipwreck_army_dwf_ally_unit_hammers_dying", 0.95); -- 0,95 casualties
+ga_battle_shipwreck_army_dwf_ally_unit_rangers:message_on_casualties("battle_shipwreck_army_dwf_ally_unit_rangers_dying", 0.95); -- 0,95 casualties
 
-ga_nor_1:message_on_casualties("nor_1_dying", 0.5);
-ga_nor_1:message_on_shattered_proportion("nor_1_dead", 1);
+gb:fail_objective_on_message("battle_shipwreck_army_dwf_ally_unit_hammers_dying", "mission_shipwrecke_objective_1_tooltip", 5); -- Defend the Ironclad and its crew  
+gb:fail_objective_on_message("battle_shipwreck_army_dwf_ally_unit_rangers_dying", "mission_shipwrecke_objective_1_tooltip", 5); -- Defend the Ironclad and its crew
+gb:fail_objective_on_message("battle_shipwreck_character_name_dwf_ally_dead", "mission_shipwrecke_objective_2_tooltip", 5); -- Ensure the Master Engineer's survival
 
-ga_dwarf_1:release_on_message("battle_started");
-
-gb:complete_objective_on_message("nor_1_dead", "mission_shipwrecke_objective_4_fail_message", 5);
-gb:fail_objective_on_message("dwarf_1_dying", "mission_shipwrecke_objective_4_fail_message", 5);
-
+ga_battle_shipwreck_character_name_nor:force_victory_on_message("battle_shipwreck_army_dwf_ally_unit_hammers_dying", 10000); -- Fail: Defend the Ironclad and its crew  
+ga_battle_shipwreck_character_name_nor:force_victory_on_message("battle_shipwreck_army_dwf_ally_unit_rangers_dying", 10000); -- Fail: Defend the Ironclad and its crew  
+ga_battle_shipwreck_character_name_nor:force_victory_on_message("battle_shipwreck_character_name_dwf_ally_dead", 10000); -- Fail: Ensure the Master Engineer's survival
 -------------------------------------------------------------------------------------------------
 ------------------------------------------- OBJECTIVES ------------------------------------------
 -------------------------------------------------------------------------------------------------
 
-gb:set_objective_on_message("deployment_started", "mission_shipwrecke_objective_1_tooltip");
-gb:set_objective_on_message("deployment_started", "mission_shipwrecke_objective_2_tooltip");
+gb:set_objective_on_message("deployment_started", "mission_shipwrecke_objective_1_tooltip"); -- Defend the Ironclad and its crew  
+gb:set_objective_on_message("deployment_started", "mission_shipwrecke_objective_2_tooltip"); -- Ensure the Master Engineer's survival
 
 -------------------------------------------------------------------------------------------------
 --------------------------------------------- HINTS/MESSAGES ---------------------------------------------
 -------------------------------------------------------------------------------------------------
 
-gb:queue_help_on_message("battle_started", "mission_shipwrecke_objective_3_message", 8000, 2000, 1000);
-
+gb:queue_help_on_message("battle_started", "mission_shipwrecke_objective_3_message", 8000, 2000, 1000); -- (Grunnar Vestgrud) "Save our Brothers, Slay the Norsemen!"
+gb:queue_help_on_message("battle_shipwreck_character_name_dwf_ally_dead", "mission_shipwrecke_objective_4_fail_message", 8000, 2000, 1000); -- The Crew is dead, all is lost. 
+gb:queue_help_on_message("battle_shipwreck_army_dwf_ally_unit_hammers_dying", "mission_shipwrecke_objective_4_fail_message", 8000, 2000, 1000); -- The Crew is dead, all is lost. 
+gb:queue_help_on_message("battle_shipwreck_army_dwf_ally_unit_rangers_dying", "mission_shipwrecke_objective_4_fail_message", 8000, 2000, 1000); -- The Crew is dead, all is lost. 
