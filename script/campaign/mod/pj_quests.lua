@@ -83,6 +83,7 @@ cm:add_first_tick_callback(function()
 		move_mission_sjoktraken = mod.move_mission_sjoktraken,
 		move_mission_kraka_drak = mod.move_mission_kraka_drak,
 		move_mission_kraka_ravnsvake = mod.move_mission_kraka_ravnsvake,
+		move_mission_sjoktraken_after_shipwreck = mod.move_mission_sjoktraken_after_shipwreck,
 	-- QB missions --
 		mission_sjoktraken_shipwreck = mod.mission_sjoktraken_shipwreck,
 		mission_sjoktraken_the_last_hope_inn = mod.mission_sjoktraken_the_last_hope_inn,
@@ -95,9 +96,10 @@ cm:add_first_tick_callback(function()
 
 	mod.missions_list = { -- would like to have better names for these states
 		game_start = {mod.move_mission_sjoktraken},
-		in_sjok = {mod.mission_sjoktraken_shipwreck}, -- next line is curently filled to support testing, but not working 
-		after_shipwreck = {mod.move_mission_kraka_drak, mod.move_mission_kraka_ravnsvake, mod.mission_sjoktraken_the_last_hope_inn, mod.mission_kraka_drak_beastmen_camp, mod.mission_kraka_drak_chaos_warp, mod.mission_after_kraka_drak_mountain_pass, mod.mission_kraka_ravnsvake_fimir_bog, mod.mission_kraka_ravnsvake_icetrolls},
-		after_shipwreck_2 = {mod.move_mission_kraka_drak},
+		in_sjok = {mod.mission_sjoktraken_shipwreck}, -- next line is curently filled to support testing, but not working
+		-- after_shipwreck = {mod.move_mission_kraka_drak, mod.move_mission_kraka_ravnsvake, mod.mission_sjoktraken_the_last_hope_inn, mod.mission_kraka_drak_beastmen_camp, mod.mission_kraka_drak_chaos_warp, mod.mission_after_kraka_drak_mountain_pass, mod.mission_kraka_ravnsvake_fimir_bog, mod.mission_kraka_ravnsvake_icetrolls},
+		after_shipwreck = {mod.move_mission_sjoktraken_after_shipwreck},
+		in_sjok_after_shipwreck = {mod.move_mission_kraka_drak},
 		in_kraka_drak = {},
 		in_kraka_ravn = {},
 		in_drak_after_beastmen = {},
