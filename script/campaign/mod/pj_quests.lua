@@ -5,6 +5,7 @@ mod.states = {
 	game_start = "game_start",
 	in_sjok = "in_sjok",
 	after_shipwreck = "after_shipwreck",
+	in_sjok_after_shipwreck = "in_sjok_after_shipwreck",
 	in_kraka_drak = "in_kraka_drak",
 	in_kraka_ravn = "in_kraka_ravn",
 	in_drak_after_beastmen = "in_drak_after_beastmen",
