@@ -100,7 +100,7 @@ cm:add_first_tick_callback(function()
 		in_sjok = {mod.mission_sjoktraken_shipwreck}, -- next line is curently filled to support testing, but not working
 		-- after_shipwreck = {mod.move_mission_kraka_drak, mod.move_mission_kraka_ravnsvake, mod.mission_sjoktraken_the_last_hope_inn, mod.mission_kraka_drak_beastmen_camp, mod.mission_kraka_drak_chaos_warp, mod.mission_after_kraka_drak_mountain_pass, mod.mission_kraka_ravnsvake_fimir_bog, mod.mission_kraka_ravnsvake_icetrolls},
 		after_shipwreck = {mod.move_mission_sjoktraken_after_shipwreck},
-		in_sjok_after_shipwreck = {mod.move_mission_kraka_drak},
+		in_sjok_after_shipwreck = {mod.move_mission_kraka_drak, mod.mission_sjoktraken_the_last_hope_inn},
 		in_kraka_drak = {},
 		in_kraka_ravn = {},
 		in_drak_after_beastmen = {},
