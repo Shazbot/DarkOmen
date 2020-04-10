@@ -8,7 +8,7 @@ mod.mission_sjoktraken_the_last_hope_inn_payload = function(char)
 		cm:scroll_camera_from_current(true, 0.1, {464.588, 495.165, 5, d_to_r(120), 4})
 		cm:callback(function()
 			cm:callback(function()
-				cm:move_to(cm:char_lookup_str(char), 679,635, true) -- mission_last_hope_inn
+				cm:move_to(cm:char_lookup_str(char), 679, 635, true) -- mission_last_hope_inn
 			end, 0.5)
 			cm:scroll_camera_from_current(
 				true, 4,
@@ -46,7 +46,7 @@ core:add_listener(
 	"pj_quests_won_battle_the_last_hope_inn",
 	true,
 	function()
-		mod.set_state(mod.states.after_shipwreck)
+		mod.set_state(mod.states.after_last_inn)
 	end,
 	true
 )

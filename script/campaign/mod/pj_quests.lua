@@ -5,7 +5,9 @@ mod.states = {
 	game_start = "game_start",
 	in_sjok = "in_sjok",
 	after_shipwreck = "after_shipwreck",
+	after_last_inn = "after_last_inn",
 	in_sjok_after_shipwreck = "in_sjok_after_shipwreck",
+	in_sjok_after_last_inn = "in_sjok_after_last_inn",
 	in_kraka_drak = "in_kraka_drak",
 	in_kraka_ravn = "in_kraka_ravn",
 	in_drak_after_beastmen = "in_drak_after_beastmen",
@@ -64,6 +66,21 @@ core:add_listener(
 				end
 			end
 		end
+
+		if cm:pending_battle_cache_num_attackers() >= 1 then
+			for i = 1, cm:pending_battle_cache_num_attackers() do
+				local this_char_cqi, _, current_faction_name = cm:pending_battle_cache_get_attacker(i);
+				if current_faction_name == cm:get_local_faction(true) then
+					if not cm:model():character_for_command_queue_index(this_char_cqi):is_null_interface()
+						and cm:model():character_for_command_queue_index(this_char_cqi):won_battle()
+					then
+						cm:callback(function() core:trigger_event("pj_quests_won_"..battle_key) end, 0.1)
+					else
+						cm:callback(function() core:trigger_event("pj_quests_lost_"..battle_key) end, 0.1)
+					end
+				end
+			end
+		end
 	end,
 	true
 )
@@ -85,6 +102,7 @@ cm:add_first_tick_callback(function()
 		move_mission_kraka_drak = mod.move_mission_kraka_drak,
 		move_mission_kraka_ravnsvake = mod.move_mission_kraka_ravnsvake,
 		move_mission_sjoktraken_after_shipwreck = mod.move_mission_sjoktraken_after_shipwreck,
+		move_mission_sjoktraken_after_last_inn = mod.move_mission_sjoktraken_after_last_inn,
 	-- QB missions --
 		mission_sjoktraken_shipwreck = mod.mission_sjoktraken_shipwreck,
 		mission_sjoktraken_the_last_hope_inn = mod.mission_sjoktraken_the_last_hope_inn,
@@ -101,6 +119,8 @@ cm:add_first_tick_callback(function()
 		-- after_shipwreck = {mod.move_mission_kraka_drak, mod.move_mission_kraka_ravnsvake, mod.mission_sjoktraken_the_last_hope_inn, mod.mission_kraka_drak_beastmen_camp, mod.mission_kraka_drak_chaos_warp, mod.mission_after_kraka_drak_mountain_pass, mod.mission_kraka_ravnsvake_fimir_bog, mod.mission_kraka_ravnsvake_icetrolls},
 		after_shipwreck = {mod.move_mission_sjoktraken_after_shipwreck},
 		in_sjok_after_shipwreck = {mod.move_mission_kraka_drak, mod.mission_sjoktraken_the_last_hope_inn},
+		after_last_inn = {mod.move_mission_sjoktraken_after_last_inn},
+		in_sjok_after_last_inn = {mod.move_mission_kraka_drak},
 		in_kraka_drak = {},
 		in_kraka_ravn = {},
 		in_drak_after_beastmen = {},
