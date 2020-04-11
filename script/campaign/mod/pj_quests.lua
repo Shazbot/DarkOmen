@@ -103,6 +103,7 @@ cm:add_first_tick_callback(function()
 		move_mission_kraka_ravnsvake = mod.move_mission_kraka_ravnsvake,
 		move_mission_sjoktraken_after_shipwreck = mod.move_mission_sjoktraken_after_shipwreck,
 		move_mission_sjoktraken_after_last_inn = mod.move_mission_sjoktraken_after_last_inn,
+		move_mission_kraka_drak_after_beastmen = mod.move_mission_kraka_drak_after_beastmen,
 	-- QB missions --
 		mission_sjoktraken_shipwreck = mod.mission_sjoktraken_shipwreck,
 		mission_sjoktraken_the_last_hope_inn = mod.mission_sjoktraken_the_last_hope_inn,
@@ -121,11 +122,11 @@ cm:add_first_tick_callback(function()
 		in_sjok_after_shipwreck = {mod.move_mission_kraka_drak, mod.mission_sjoktraken_the_last_hope_inn},
 		after_last_inn = {mod.move_mission_sjoktraken_after_last_inn},
 		in_sjok_after_last_inn = {mod.move_mission_kraka_drak},
-		in_kraka_drak = {},
+		in_kraka_drak = {mod.mission_kraka_drak_beastmen_camp},
+		after_beastmen_camp = {mod.move_mission_kraka_drak_after_beastmen},
 		in_kraka_ravn = {},
 		in_drak_after_beastmen = {},
 		in_drak_after_chaos = {},
-		after_beastmen_camp = {},
 		after_chaos_warp = {},
 	}
 end)

@@ -23,10 +23,8 @@ local payload = function(char)
 			cm:callback(function()
 				CampaignUI.ToggleCinematicBorders(false)
 				cm:stop_user_input(false)
-				mod.select_first_lord()
 				mod.set_state(mod.states.in_sjok_after_last_inn)
 			end, 5)
-
 		end, 0.5)
 	end, 0.1)
 end
