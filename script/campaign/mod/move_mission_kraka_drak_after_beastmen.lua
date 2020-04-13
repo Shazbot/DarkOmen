@@ -33,7 +33,7 @@ mod[mission_key] = {
 	locs = {
 		title="March to Kraka Drak",
 		desc="March to Kraka Drak",
-		mission_desc = "Return to raka Dra and hand in the Beastmen Camp quest.",
+		mission_desc = "The battle is won, we should return to the capital and be celebrated!",
 	},
 	icon = "ui/small_city_schem_frame_major.png",
 	payload = payload,

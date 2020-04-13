@@ -35,7 +35,7 @@ mod[mission_key] = {
 	locs = {
 		title="March to Sjoktraken",
 		desc="March to Sjoktraken",
-		mission_desc = "Return to Sjoktracken and hand in the Last Hope Inn quest.",
+		mission_desc = "Escort the merchants from Sjoktrakens trader guild back.",
 	},
 	icon = "ui/small_city_schem_frame_major.png",
 	payload = payload,

@@ -29,7 +29,7 @@ mod.move_mission_sjoktraken_after_shipwreck = {
 	locs = {
 		title="March to Sjoktraken",
 		desc="March to Sjoktraken",
-		mission_desc = "Return to Sjoktracken and hand in the Ironclad quest.",
+		mission_desc = "Ensure the Ironclads returnto Sjoktracken.",
 	},
 	icon = "ui/small_city_schem_frame_major.png",
 	payload = mod.move_mission_sjoktraken_after_shipwreck_payload,
