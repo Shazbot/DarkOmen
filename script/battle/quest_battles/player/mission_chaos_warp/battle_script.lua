@@ -34,6 +34,13 @@ gb:set_cutscene_during_deployment(true);
 -------------------------------------------------------------------------------------------------
 ------------------------------------------ ARMY SETUP -------------------------------------------
 -------------------------------------------------------------------------------------------------
+ga_player = gb:get_army(gb:get_player_alliance_num(), 1, ""); -- player attacker 
+
+--army--
+ga_battle_chaos_warp_character_name_chs0 = gb:get_army(gb:get_non_player_alliance_num(),"battle_chaos_warp_character_name_chs0"); -- char/army
+ga_battle_chaos_warp_army_chs0_unit_chaos_spawn_ror_0 = gb:get_army(gb:get_non_player_alliance_num(),"battle_chaos_warp_army_chs0_unit_chaos_spawn_ror_0"); -- char/army
+ga_battle_chaos_warp_army_chs0_unit_forsaken_ror_0 = gb:get_army(gb:get_non_player_alliance_num(),"battle_chaos_warp_army_chs0_unit_forsaken_ror_0"); -- char/army
+ga_battle_chaos_warp_army_chs0_unit_hellcannon_ror_0 = gb:get_army(gb:get_non_player_alliance_num(),"battle_chaos_warp_army_chs0_unit_hellcannon_ror_0"); -- char/army
 
 
 -------------------------------------------------------------------------------------------------
@@ -51,16 +58,24 @@ gb:set_cutscene_during_deployment(true);
 -------------------------------------------------------------------------------------------------
 ------------------------------------------ ORDERS -------------------------------------------
 -------------------------------------------------------------------------------------------------
+ga_battle_chaos_warp_character_name_chs0:attack_on_message("deployment_started");
+ga_battle_chaos_warp_army_chs0_unit_chaos_spawn_ror_0:attack_on_message("deployment_started");
+ga_battle_chaos_warp_army_chs0_unit_forsaken_ror_0 :attack_on_message("deployment_started");
+ga_battle_chaos_warp_army_chs0_unit_hellcannon_ror_0:defend_on_message("deployment_started",-330,-10,5);
+ga_battle_chaos_warp_character_name_chs0:set_invincible_on_message("deployment_started");
+
+
 
 -------------------------------------------------------------------------------------------------
 ------------------------------------------- OBJECTIVES ------------------------------------------
 -------------------------------------------------------------------------------------------------
 
-gb:set_objective_on_message("deployment_started", "mission_kraka_drak_chaos_warp_objective_1_tooltip");
-gb:set_objective_on_message("deployment_started", "mission_kraka_drak_chaos_warp_objective_2_tooltip");
+gb:set_objective_on_message("deployment_started", "mission_kraka_drak_chaos_warp_objective_1_tooltip"); --Travel the vast Chaos Abyss
+gb:set_objective_on_message("deployment_started", "mission_kraka_drak_chaos_warp_objective_2_tooltip"); -- Defeat the Deamons 
 
 -------------------------------------------------------------------------------------------------
 --------------------------------------------- HINTS/MESSAGES ---------------------------------------------
 -------------------------------------------------------------------------------------------------
 
-gb:queue_help_on_message("battle_started", "mission_kraka_drak_chaos_warp_objective_3_message", 8000, 2000, 1000);
+gb:queue_help_on_message("battle_started", "mission_kraka_drak_chaos_warp_objective_3_message", 8000, 2000, 1000); -- (Rune Lord) "Glory to the true Gods, Bring down the Ruinous Powers" 
+gb:queue_help_on_message("battle_started", "mission_kraka_drak_chaos_warp_objective_4_message", 8000, 2000, 30000);--(Nilss:) "This is suicidal and in no-way how to run a mercenary band"

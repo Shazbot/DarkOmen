@@ -123,10 +123,10 @@ cm:add_first_tick_callback(function()
 		after_last_inn = {mod.move_mission_sjoktraken_after_last_inn},
 		in_sjok_after_last_inn = {mod.move_mission_kraka_drak},
 		in_kraka_drak = {mod.mission_kraka_drak_beastmen_camp},
-		after_beastmen_camp = {mod.move_mission_kraka_drak_after_beastmen},
+		after_beastmen_camp = {mod.move_mission_kraka_drak_after_beastmen, mod.mission_kraka_drak_chaos_warp},
+		in_drak_after_beastmen = {mod.mission_after_kraka_drak_mountain_pass,},
+		in_drak_after_chaos = {}, -- no such state its a uicide mission
+		after_chaos_warp = {}, -- no such state its a uicide mission
 		in_kraka_ravn = {},
-		in_drak_after_beastmen = {},
-		in_drak_after_chaos = {},
-		after_chaos_warp = {},
 	}
 end)

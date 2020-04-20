@@ -111,3 +111,23 @@ gb:set_objective_on_message("deployment_started", "mission_kraka_drak_beastmen_c
 -------------------------------------------------------------------------------------------------
 
 gb:queue_help_on_message("battle_started", "mission_kraka_drak_beastmen_camp_objective_3_message", 8000, 2000, 1000); -- (Grunnar Vestgrud) "Pave way, Break the Beasts"
+
+-- utility tool coordinates --
+gb:add_ping_icon_on_message("zoid", v(-1, 1, 0), 1, 2000, 700000);
+gb:add_ping_icon_on_message("zoid", v(-100, 1, 0), 2, 2000, 700000);
+gb:add_ping_icon_on_message("zoid", v(-200, 1, 0), 1, 2000, 700000);
+gb:add_ping_icon_on_message("zoid", v(-300, 1, 0), 1, 2000, 700000);
+gb:add_ping_icon_on_message("zoid", v(1, 1, 0), 1, 2000, 700000);
+gb:add_ping_icon_on_message("zoid", v(100, 1, 0), 1, 2000, 700000);
+gb:add_ping_icon_on_message("zoid", v(200, 1, 0), 1, 2000, 700000);
+gb:add_ping_icon_on_message("zoid", v(300, 1, 0), 1, 2000, 700000);
+gb:add_ping_icon_on_message("zoid", v(0, 1, -1), 3, 6000, 700000);
+gb:add_ping_icon_on_message("zoid", v(0, 1, -100), 4, 6000, 700000);
+gb:add_ping_icon_on_message("zoid", v(0, 1, -200), 3, 6000, 700000);
+gb:add_ping_icon_on_message("zoid", v(0, 1, -300), 3, 6000, 700000);
+gb:add_ping_icon_on_message("zoid", v(0, 1, -400), 3, 6000, 700000);
+gb:add_ping_icon_on_message("zoid", v(0, 1, 1), 3, 6000, 700000);
+gb:add_ping_icon_on_message("zoid", v(0, 1, 100), 3, 6000, 700000);
+gb:add_ping_icon_on_message("zoid", v(0, 1, 200), 3, 6000, 700000);
+gb:add_ping_icon_on_message("zoid", v(0, 1, 300), 3, 6000, 700000);
+gb:add_ping_icon_on_message("zoid", v(0, 1, 400), 3, 6000, 700000);
