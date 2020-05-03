@@ -121,28 +121,25 @@ cm:add_first_tick_callback(function()
 		mission_after_kraka_drak_mountain_pass = mod.mission_after_kraka_drak_mountain_pass,
 		mission_kraka_ravnsvake_fimir_bog = mod.mission_kraka_ravnsvake_fimir_bog,
 		mission_kraka_ravnsvake_icetrolls = mod.mission_kraka_ravnsvake_icetrolls,
-		mission_fimir_bog = mod.mission_fimir_bog,
-		mission_ice_trolls = mod.mission_ice_trolls,
 	}
 
 	mod.missions_list = { -- would like to have better names for these states
 		game_start = {mod.move_mission_sjoktraken},
-		in_sjok = {mod.mission_sjoktraken_shipwreck}, -- next line is curently filled to support testing, but not working
-		-- after_shipwreck = {mod.move_mission_kraka_drak, mod.move_mission_kraka_ravnsvake, mod.mission_sjoktraken_the_last_hope_inn, mod.mission_kraka_drak_beastmen_camp, mod.mission_kraka_drak_chaos_warp, mod.mission_after_kraka_drak_mountain_pass, mod.mission_kraka_ravnsvake_fimir_bog, mod.mission_kraka_ravnsvake_icetrolls},
+		in_sjok = {mod.mission_sjoktraken_shipwreck},
 		after_shipwreck = {mod.move_mission_sjoktraken_after_shipwreck},
 		in_sjok_after_shipwreck = {mod.move_mission_kraka_drak, mod.mission_sjoktraken_the_last_hope_inn},
 		after_last_inn = {mod.move_mission_sjoktraken_after_last_inn},
 		in_sjok_after_last_inn = {mod.move_mission_kraka_drak},
-		in_kraka_drak = {mod.mission_kraka_drak_beastmen_camp, mod.mission_after_kraka_drak_mountain_pass},
+		in_kraka_drak = {mod.mission_kraka_drak_beastmen_camp},
 		after_beastmen_camp = {mod.move_mission_kraka_drak_after_beastmen, mod.mission_kraka_drak_chaos_warp},
 		in_drak_after_beastmen = {mod.mission_after_kraka_drak_mountain_pass,},
-		in_drak_after_chaos = {}, -- no such state its a uicide mission
-		after_chaos_warp = {}, -- no such state its a uicide mission
+		in_drak_after_chaos = {}, -- no such state its a suicide mission
+		after_chaos_warp = {}, -- no such state its a suicide mission
 		after_mountain_pass_ambush = {mod.move_mission_to_ravnsvake_after_ambush},
-		in_kraka_ravn = {mod.move_mission_to_kislev, mod.mission_ice_trolls, mod.mission_fimir_bog},
+		in_kraka_ravn = {mod.move_mission_to_kislev, mod.mission_kraka_ravnsvake_icetrolls, mod.mission_kraka_ravnsvake_fimir_bog},
 		after_ice_trolls = {mod.move_mission_to_ravnsvake_after_ice_trolls},
 		after_fimir_bog = {mod.move_mission_to_ravnsvake_after_fimir_bog},
-		in_kraka_ravn_after_ice_trolls = {mod.move_mission_to_kislev, mod.mission_fimir_bog},
-		in_kraka_ravn_after_fimir_bog = {mod.move_mission_to_kislev, mod.mission_ice_trolls},
+		in_kraka_ravn_after_ice_trolls = {mod.move_mission_to_kislev},
+		in_kraka_ravn_after_fimir_bog = {mod.move_mission_to_kislev},
 	}
 end)

@@ -15,7 +15,7 @@ core:add_listener(
 	end,
 	function(context)
 		cm:callback(function()
-			cm:trigger_dilemma("wh_main_emp_empire", "Intro");
+			cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "Intro");
 		end, 1)
 	end,
 	true
@@ -33,7 +33,7 @@ core:add_listener(
 	end,
 	function(context)
 		cm:callback(function()
-			cm:trigger_dilemma("wh_main_emp_empire", "after_move_mission_sjoktraken");
+			cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "after_move_mission_sjoktraken");
 		end, 1)
 	end,
 	true
@@ -47,11 +47,11 @@ core:add_listener(
             then
                     if context:choice() == 0
                     then
-                            cm:trigger_dilemma("wh_main_emp_empire", "after_move_mission_sjoktraken_2");
+                            cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "after_move_mission_sjoktraken_2");
                     end;
                     if context:choice() == 1
                     then
-                            cm:trigger_dilemma("wh_main_emp_empire", "after_move_mission_sjoktraken_2");
+                            cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "after_move_mission_sjoktraken_2");
                     end;
             end;
     end,
@@ -70,7 +70,7 @@ core:add_listener(
 	end,
 	function(context)
 		cm:callback(function()
-			cm:trigger_dilemma("wh_main_emp_empire", "after_mission_shipwreck");
+			cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "after_mission_shipwreck");
 		end, 1)
 	end,
 	true
@@ -88,7 +88,7 @@ core:add_listener(
 	end,
 	function(context)
 		cm:callback(function()
-			cm:trigger_dilemma("wh_main_emp_empire", "after_move_mission_sjoktraken_after_shipwreck");
+			cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "after_move_mission_sjoktraken_after_shipwreck");
 		end, 1)
 	end,
 	true
@@ -106,7 +106,7 @@ core:add_listener(
 	end,
 	function(context)
 		cm:callback(function()
-			cm:trigger_dilemma("wh_main_emp_empire", "after_mission_last_inn");
+			cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "after_mission_last_inn");
 		end, 1)
 	end,
 	true
@@ -124,7 +124,7 @@ core:add_listener(
 	end,
 	function(context)
 		cm:callback(function()
-			cm:trigger_dilemma("wh_main_emp_empire", "after_move_mission_sjoktraken_after_last_inn");
+			cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "after_move_mission_sjoktraken_after_last_inn");
 		end, 1)
 	end,
 	true
@@ -142,7 +142,7 @@ core:add_listener(
 	end,
 	function(context)
 		cm:callback(function()
-			cm:trigger_dilemma("wh_main_emp_empire", "after_move_mission_kraka_drak");
+			cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "after_move_mission_kraka_drak");
 		end, 1)
 	end,
 	true
@@ -156,11 +156,11 @@ core:add_listener(
             then
                     if context:choice() == 0
                     then
-                            cm:trigger_dilemma("wh_main_emp_empire", "after_move_mission_kraka_drak_2");
+                            cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "after_move_mission_kraka_drak_2");
                     end;
                     if context:choice() == 1
                     then
-                            cm:trigger_dilemma("wh_main_emp_empire", "after_move_mission_kraka_drak_2");
+                            cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "after_move_mission_kraka_drak_2");
                     end;
             end;
     end,
@@ -179,7 +179,7 @@ core:add_listener(
 	end,
 	function(context)
 		cm:callback(function()
-			cm:trigger_dilemma("wh_main_emp_empire", "after_mission_beastmen_camp");
+			cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "after_mission_beastmen_camp");
 		end, 1)
 	end,
 	true
@@ -197,7 +197,7 @@ core:add_listener(
 	end,
 	function(context)
 		cm:callback(function()
-			cm:trigger_dilemma("wh_main_emp_empire", "after_in_drak_after_beastmen");
+			cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "after_in_drak_after_beastmen");
 		end, 1)
 	end,
 	true
@@ -211,11 +211,11 @@ core:add_listener(
             then
                     if context:choice() == 0
                     then
-                            cm:trigger_dilemma("wh_main_emp_empire", "after_in_drak_after_beastmen_2");
+                            cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "after_in_drak_after_beastmen_2");
                     end;
                     if context:choice() == 1
                     then
-                            cm:trigger_dilemma("wh_main_emp_empire", "after_in_drak_after_beastmen_2");
+                            cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "after_in_drak_after_beastmen_2");
                     end;
             end;
     end,

@@ -34,7 +34,7 @@ mod[mission_key] = {
 	locs = {
 		title="March to Kraka Ravnsvake",
 		desc="March to Kraka Ravnsvake",
-		mission_desc = "March to Kraka Ravnsvake, setup camp on the half way",
+		mission_desc = "The underground route to Kraka Ravnsvake, has been swarming with foul monstrosities for some time now. Until cleansed by the tunnel patrols, its safer to take the surface route west of the main mountains. We will setup up camp beneath the Gruly pass and wait for calm weather, before crossing the mountain pass.",
 	},
 	icon = "ui/small_city_schem_frame_major.png",
 	payload = payload,
@@ -46,7 +46,7 @@ core:add_listener(
 	"pj_quests_won_battle_mountain_pass",
 	true,
 	function()
-		mod.set_state(mod.states.in_kraka_ravn)
+		mod.set_state(mod.states.after_mountain_pass_ambush)
 	end,
 	true
 )

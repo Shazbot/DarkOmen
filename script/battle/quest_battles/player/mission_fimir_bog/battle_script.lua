@@ -56,7 +56,7 @@ gb:set_cutscene_during_deployment(true);
 ------------------------------------------- OBJECTIVES ------------------------------------------
 -------------------------------------------------------------------------------------------------
 
-gb:set_objective_on_message("deployment_started", "mission_kraka_ravnsvake_fimir bog_objective_1_tooltip");
+gb:set_objective_on_message("deployment_started", "mission_kraka_ravnsvake_fimir_bog_objective_1_tooltip");
 gb:set_objective_on_message("deployment_started", "mission_kraka_ravnsvake_fimir bog_objective_2_tooltip");
 
 -------------------------------------------------------------------------------------------------

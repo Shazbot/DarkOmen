@@ -7,7 +7,7 @@ local payload = function(char)
 	cm:callback(function()
 		CampaignUI.ToggleCinematicBorders(true)
 		cm:stop_user_input(true)
-		cm:scroll_camera_from_current(true, 0.1, {453.89309692383,490.53359985352, 5, d_to_r(120), 4}) -- reset the camera to a starting position
+		cm:scroll_camera_from_current(true, 0.1, {453.89,490.53, 5, d_to_r(120), 4}) -- reset the camera to a starting position
 
 		cm:callback(function()
 			cm:callback(function()
@@ -24,6 +24,7 @@ local payload = function(char)
 				CampaignUI.ToggleCinematicBorders(false)
 				cm:stop_user_input(false)
 				mod.set_state(mod.states.in_sjok_after_last_inn)
+				cm:replenish_action_points(cm:char_lookup_str(char))
 			end, 5)
 		end, 0.5)
 	end, 0.1)
