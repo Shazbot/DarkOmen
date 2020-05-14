@@ -20,9 +20,9 @@ mod.create_quests_panel = function()
 
 	local myFrame = Frame.new("Quests")
 
-	myFrame:Resize(920+100+152, 800+100+150+75)
+	myFrame:Resize(920+100+152, 800+100+75+50)
 	Util.centreComponentOnScreen(myFrame)
-	myFrame:Move(0, 0)
+	myFrame:Move(0, 5)
 	myFrame.uic:RegisterTopMost()
 
 	local traitImage = Image.new("pj_quests_bg_image", myFrame, "ui/Roadmap.png");
@@ -34,7 +34,7 @@ mod.create_quests_panel = function()
 	quest_description:Resize(545+150, 300)
 	quest_description_title:Resize(545+350, 50)
 	quest_description_title:PositionRelativeTo(myFrame, 275+70+130, 140+3*50+200+250-80)
-	quest_description:PositionRelativeTo(myFrame, 275+70-75, 140+3*50+200+250-40)
+	quest_description:PositionRelativeTo(myFrame, 275+70-75, 140+3*50+200+250-40-50-5)
 
 	local start_quest_button = TextButton.new("pj_quests_start_quest_button", myFrame, "TEXT", "Select a quest on the map")
 
@@ -45,7 +45,8 @@ mod.create_quests_panel = function()
 		local desc = mission_data.locs and mission_data.locs and mission_data.locs.desc or effect.get_localised_string("missions_localised_description_"..mission_key)
 		local quest_button = Button.new("pj_quests_"..mission_key.."_button", myFrame, "CIRCULAR", mission_data.icon)
 		quest_button:Resize(60, 60)
-		quest_button:PositionRelativeTo(myFrame, unpack(mission_data.ui_offsets))
+		local quest_button_x, quest_button_y = unpack(mission_data.ui_offsets)
+		quest_button:PositionRelativeTo(myFrame, quest_button_x, quest_button_y - 50)
 		quest_button.uic:SetTooltipText(title.."||".."Start the \""..desc.."\" quest.",  true)
 
 		quest_button.uic:StartPulseHighlight()
@@ -56,7 +57,7 @@ mod.create_quests_panel = function()
 			start_quest_button:SetDisabled(false)
 
 			local text_width = quest_description_title.uic:TextDimensionsForText(title)
-			quest_description_title:PositionRelativeTo(myFrame, 275+55+238-text_width/2, 140+3*50+200+250-80)
+			quest_description_title:PositionRelativeTo(myFrame, 275+55+238-text_width/2, 140+3*50+200+250-80-50-5)
 
 			quest_description_title:SetText(title)
 			quest_description:SetText(mission_data.locs.mission_desc)
@@ -75,7 +76,7 @@ mod.create_quests_panel = function()
 	end
 
 	start_quest_button:SetDisabled(true)
-	start_quest_button:PositionRelativeTo(myFrame, 275+60, 140+3*50+200+250+65)
+	start_quest_button:PositionRelativeTo(myFrame, 275+60, 140+3*50+200+150+65+50)
 	start_quest_button:Resize(500, 50)
 	start_quest_button:RegisterForClick(function()
 		cm:callback(function()
@@ -87,12 +88,12 @@ mod.create_quests_panel = function()
 
 	local parchment = digForComponent(myFrame.uic, "parchment")
 	if parchment then
-		parchment:SetDockOffset(0, 162+50)
+		parchment:SetDockOffset(0, 162+50-50+20)
 	end
 	local bg_img = digForComponent(myFrame.uic, "pj_quests_bg_image")
 	if bg_img then
 		local img_x, img_y = bg_img:Position()
-		bg_img:MoveTo(img_x, img_y-70-15)
+		bg_img:MoveTo(img_x, img_y-70-15-50)
 	end
 
 	myFrame:AddCloseButton(function()
