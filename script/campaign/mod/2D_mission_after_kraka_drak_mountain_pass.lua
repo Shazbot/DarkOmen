@@ -24,7 +24,7 @@ local payload = function(char)
 			cm:stop_user_input(false)
 			mod.select_first_lord()
 			mod.force_start_quest_battle("mission_after_kraka_drak_mountain_pass")
-		end, 5)
+		end, 7)
 	end, 0.1)
 end
 
