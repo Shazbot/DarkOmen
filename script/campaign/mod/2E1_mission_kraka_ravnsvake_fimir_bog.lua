@@ -3,20 +3,24 @@ local mod = PJ_QUESTS
 
 local mission_key = "mission_kraka_ravnsvake_fimir_bog"
 
+-- this is the starting char and camera position
+-- local char = cm:get_faction(cm:get_local_faction(true)):faction_leader()
+-- cm:scroll_camera_from_current(true, 0.1, {437.8497, 492.077, 8, d_to_r(120), 4})
+-- cm:teleport_to(cm:char_lookup_str(char), 655, 637, false)
+
 local payload = function(char)
 	cm:callback(function()
 		CampaignUI.ToggleCinematicBorders(true)
 		cm:stop_user_input(true)
-		cm:scroll_camera_from_current(true, 0.1, {455.23, 504.43, 5, d_to_r(120), 4})
+		cm:scroll_camera_from_current(true, 0.1, {437.8497, 492.077, 8, d_to_r(120), 4})
 
 		cm:callback(function()
-			cm:move_to(cm:char_lookup_str(char), 671, 636, true) 
+			cm:move_to(cm:char_lookup_str(char), 671, 636, true) -- moving to fimir bog battle
 		end, 0.5)
 
 		cm:scroll_camera_from_current(
-			true, 4,
-			{453.22, 510.21, 5, d_to_r(120), 4},
-			{441.88, 507.61, 5, d_to_r(120), 4}
+			true, 4.5,
+			{450.55, 490.92, 6, d_to_r(120), 4}
 		)
 
 		cm:callback(function()
@@ -30,7 +34,7 @@ end
 
 mod[mission_key] = {
 	key = mission_key,
-	ui_offsets = {725-117+40, 425-257-60},
+	ui_offsets = {565, 360},
 	locs = {
 		title="Hunting Grounds",
 		desc="Hunting Grounds",
@@ -38,6 +42,7 @@ mod[mission_key] = {
 	},
 	icon = "ui/small_city_schem_frame_major.png",
 	payload = payload,
+	condition = function() return not cm:get_saved_value("pj_quests_fimir_bog_completed") end,
 }
 
 core:remove_listener("pj_quests_on_won_battle_fimir_bog")

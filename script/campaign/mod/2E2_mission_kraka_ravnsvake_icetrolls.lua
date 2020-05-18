@@ -3,20 +3,24 @@ local mod = PJ_QUESTS
 
 local mission_key = "mission_kraka_ravnsvake_icetrolls"
 
+-- this is the starting char and camera position
+-- local char = cm:get_faction(cm:get_local_faction(true)):faction_leader()
+-- cm:scroll_camera_from_current(true, 0.1, {437.8497, 492.077, 8, d_to_r(120), 4})
+-- cm:teleport_to(cm:char_lookup_str(char), 655, 637, false)
+
 local payload = function(char)
 	cm:callback(function()
 		CampaignUI.ToggleCinematicBorders(true)
 		cm:stop_user_input(true)
-		cm:scroll_camera_from_current(true, 0.1, {455.23, 504.43, 5, d_to_r(120), 4})
+		cm:scroll_camera_from_current(true, 0.1, {437.8497, 492.077, 8, d_to_r(120), 4})
 
 		cm:callback(function()
-			cm:move_to(cm:char_lookup_str(char), 643, 630, true) 
+			cm:move_to(cm:char_lookup_str(char), 643, 630, true) -- moving to Kislev
 		end, 0.5)
 
 		cm:scroll_camera_from_current(
-			true, 4,
-			{453.22, 510.21, 5, d_to_r(120), 4},
-			{441.88, 507.61, 5, d_to_r(120), 4}
+			true, 3.5,
+			{429.828, 486.674, 5, d_to_r(120), 4}
 		)
 
 		cm:callback(function()
@@ -24,13 +28,13 @@ local payload = function(char)
 			cm:stop_user_input(false)
 			mod.select_first_lord()
 			mod.force_start_quest_battle("mission_kraka_ravnsvake_icetrolls")
-		end, 5)
+		end, 4.5)
 	end, 0.1)
 end
 
 mod[mission_key] = {
 	key = mission_key,
-	ui_offsets = {700, 425},
+	ui_offsets = {140, 410},
 	locs = {
 		title="Glacier Cleansing",
 		desc="Glacier Cleansing",
@@ -38,6 +42,7 @@ mod[mission_key] = {
 	},
 	icon = "ui/small_city_schem_frame_major.png",
 	payload = payload,
+	condition = function() return not cm:get_saved_value("pj_quests_ice_trolls_completed") end,
 }
 
 core:remove_listener("pj_quests_on_won_battle_icetrolls")

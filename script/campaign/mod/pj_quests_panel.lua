@@ -40,39 +40,41 @@ mod.create_quests_panel = function()
 
 	local current_missions = mod.missions_list[mod.current_state] or {}
 	for _, mission_data in ipairs(current_missions) do
-		local mission_key = mission_data.key
-		local title = mission_data.locs and mission_data.locs and mission_data.locs.title or effect.get_localised_string("missions_localised_title_"..mission_key)
-		local desc = mission_data.locs and mission_data.locs and mission_data.locs.desc or effect.get_localised_string("missions_localised_description_"..mission_key)
-		local quest_button = Button.new("pj_quests_"..mission_key.."_button", myFrame, "CIRCULAR", mission_data.icon)
-		quest_button:Resize(60, 60)
-		local quest_button_x, quest_button_y = unpack(mission_data.ui_offsets)
-		quest_button:PositionRelativeTo(myFrame, quest_button_x, quest_button_y - 50)
-		quest_button.uic:SetTooltipText(title.."||".."Start the \""..desc.."\" quest.",  true)
+		if not mission_data.condition or mission_data.condition() then
+			local mission_key = mission_data.key
+			local title = mission_data.locs and mission_data.locs and mission_data.locs.title or effect.get_localised_string("missions_localised_title_"..mission_key)
+			local desc = mission_data.locs and mission_data.locs and mission_data.locs.desc or effect.get_localised_string("missions_localised_description_"..mission_key)
+			local quest_button = Button.new("pj_quests_"..mission_key.."_button", myFrame, "CIRCULAR", mission_data.icon)
+			quest_button:Resize(60, 60)
+			local quest_button_x, quest_button_y = unpack(mission_data.ui_offsets)
+			quest_button:PositionRelativeTo(myFrame, quest_button_x, quest_button_y - 50)
+			quest_button.uic:SetTooltipText(title.."||".."Start the \""..desc.."\" quest.",  true)
 
-		quest_button.uic:StartPulseHighlight()
+			quest_button.uic:StartPulseHighlight()
 
-		quest_button:RegisterForClick(function()
-			mod.selected_quest = mission_key
-			start_quest_button:SetButtonText(title)
-			start_quest_button:SetDisabled(false)
+			quest_button:RegisterForClick(function()
+				mod.selected_quest = mission_key
+				start_quest_button:SetButtonText(title)
+				start_quest_button:SetDisabled(false)
 
-			local text_width = quest_description_title.uic:TextDimensionsForText(title)
-			quest_description_title:PositionRelativeTo(myFrame, 275+55+238-text_width/2, 140+3*50+200+250-80-50-5)
+				local text_width = quest_description_title.uic:TextDimensionsForText(title)
+				quest_description_title:PositionRelativeTo(myFrame, 275+55+238-text_width/2, 140+3*50+200+250-80-50-5)
 
-			quest_description_title:SetText(title)
-			quest_description:SetText(mission_data.locs.mission_desc)
-		end)
+				quest_description_title:SetText(title)
+				quest_description:SetText(mission_data.locs.mission_desc)
+			end)
 
-		local img = Image.new("pj_quests"..mission_key.."_text_bg", myFrame, "ui/skins/warhammer2/unit_card_post_battle_banner.png")
-		local x,y = quest_button:Position()
-		img:Resize(300, 50)
-		img:MoveTo(x-115, y+50)
+			local img = Image.new("pj_quests"..mission_key.."_text_bg", myFrame, "ui/skins/warhammer2/unit_card_post_battle_banner.png")
+			local x,y = quest_button:Position()
+			img:Resize(300, 50)
+			img:MoveTo(x-115, y+50)
 
-		local parchment_text = Text.new("pj_quests"..mission_key.."_text", myFrame, "NORMAL", title)
-		parchment_text:Resize(300, 50)
-		local parchment_text_offset_x = mission_data.parchment_text_offset and mission_data.parchment_text_offset[1] or 0
-		local parchment_text_offset_y = mission_data.parchment_text_offset and mission_data.parchment_text_offset[2] or 0
-		parchment_text:MoveTo(x-40+parchment_text_offset_x, y+70+parchment_text_offset_y)
+			local parchment_text = Text.new("pj_quests"..mission_key.."_text", myFrame, "NORMAL", title)
+			parchment_text:Resize(300, 50)
+			local parchment_text_offset_x = mission_data.parchment_text_offset and mission_data.parchment_text_offset[1] or 0
+			local parchment_text_offset_y = mission_data.parchment_text_offset and mission_data.parchment_text_offset[2] or 0
+			parchment_text:MoveTo(x-40+parchment_text_offset_x, y+70+parchment_text_offset_y)
+		end
 	end
 
 	start_quest_button:SetDisabled(true)

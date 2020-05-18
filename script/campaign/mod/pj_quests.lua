@@ -19,6 +19,7 @@ mod.states = {
 	after_fimir_bog = "after_fimir_bog",
 	in_kraka_ravn_after_ice_trolls = "in_kraka_ravn_after_ice_trolls",
 	in_kraka_ravn_after_fimir_bog = "in_kraka_ravn_after_fimir_bog",
+	game_end = "game_end",
 }
 
 mod.current_state = mod.current_state or mod.states.game_start
@@ -141,5 +142,6 @@ cm:add_first_tick_callback(function()
 		after_fimir_bog = {mod.move_mission_to_ravnsvake_after_fimir_bog},
 		in_kraka_ravn_after_ice_trolls = {mod.move_mission_to_kislev},
 		in_kraka_ravn_after_fimir_bog = {mod.move_mission_to_kislev},
+		game_end = {}
 	}
 end)
