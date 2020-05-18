@@ -35,7 +35,7 @@ end
 
 mod[mission_key] = {
 	key = mission_key,
-	ui_offsets = {725, 425},
+	ui_offsets = {390, 330},
 	locs = {
 		title="After_fimir_bog",
 		desc="After_fimir_bog",

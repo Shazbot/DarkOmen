@@ -35,7 +35,7 @@ end
 
 mod[mission_key] = {
 	key = mission_key,
-	ui_offsets = {555, 505},
+	ui_offsets = {390, 330},
 	locs = {
 		title="After ice_trolls",
 		desc="After ice_trolls",
