@@ -52,6 +52,14 @@ local function create_frontend_listeners()
 			if wh2_main_great_vortex then
 				wh2_main_great_vortex:SetVisible(false)
 			end
+
+			local main_warhammer = digForComponent(core:get_ui_root(), "main_warhammer")
+			if not main_warhammer then return end
+
+			local button_campaign_entry = digForComponent(main_warhammer, "button_campaign_entry")
+			if not button_campaign_entry then return end
+
+			button_campaign_entry:SimulateLClick()
 		end,
 		true
 	)
