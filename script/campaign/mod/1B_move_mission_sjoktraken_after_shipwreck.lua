@@ -28,8 +28,8 @@ mod.move_mission_sjoktraken_after_shipwreck = {
 	key = "move_mission_sjoktraken_after_shipwreck",
 	ui_offsets = {725+103, 425+35+2-90-24},
 	locs = {
-		title="Return to Sjoktraken with the crew",
-		desc="Return to Sjoktraken with the crew",
+		title="Return to Sjoktraken",
+		desc="Return to Sjoktraken",
 		mission_desc = "The remaining crew of the Ironclad and its captain has been provided for and the proud vessel repaired and made ready for open waters. A few wounded crew members will be joining us on the inland return to Sjoktraken, while the ironclad returns by Sea. ",
 	},
 	icon = "ui/small_city_schem_frame_major.png",

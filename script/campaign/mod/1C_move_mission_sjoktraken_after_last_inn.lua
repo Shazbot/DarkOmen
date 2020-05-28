@@ -34,7 +34,7 @@ mod[mission_key] = {
 	key = mission_key,
 	ui_offsets = {725+103, 425+35+2-90-24},
 	locs = {
-		title="Return the  to Sjoktraken",
+		title="Return to Sjoktraken",
 		desc="Return to Sjoktraken",
 		mission_desc = "The inhabitants of the Last Hope Inn and the envoy to the merchant guild celebrated they renewed contact by forging trade agreements. Four decades had passed since a dwarf last time visited the Inn. Stocked up on exotic goods from the southern lands of Kislev, we are to escort the merchants back to Sjoktraken.",
 	},
