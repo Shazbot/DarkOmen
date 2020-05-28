@@ -31,9 +31,9 @@ mod[mission_key] = {
 	key = mission_key,
 	ui_offsets = {390, 330},
 	locs = {
-		title="After ambush",
-		desc="After ambush",
-		mission_desc = "After ambush",
+		title="March to Kraka Ravnsvake",
+		desc="March to Kraka Ravnsvake",
+		mission_desc = "The Ratmen have turned tails - for now. We should not linger far from freindly keeps - Lets make haste and march towards Kraka Ravnsvake.",
 	},
 	icon = "ui/small_city_schem_frame_major.png",
 	payload = payload,

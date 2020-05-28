@@ -32,9 +32,9 @@ mod[mission_key] = {
 	key = mission_key,
 	ui_offsets = {725-117, 425-257},
 	locs = {
-		title="March to Kraka Drak",
-		desc="March to Kraka Drak",
-		mission_desc = "The battle is won, we should return to the capital and be celebrated!",
+		title="Return to Kraka Drak",
+		desc="Return to Kraka Drak",
+		mission_desc = "The Beastmen are no more and the portal with them. Kraka Drak endures and prevails - such are the faith of our people! We should return to the capital and be celebrated!",
 	},
 	icon = "ui/small_city_schem_frame_major.png",
 	payload = payload,

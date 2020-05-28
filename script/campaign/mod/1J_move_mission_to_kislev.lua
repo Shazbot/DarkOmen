@@ -31,9 +31,9 @@ mod[mission_key] = {
 	key = mission_key,
 	ui_offsets = {135, 505},
 	locs = {
-		title="Kislev",
-		desc="Kislev",
-		mission_desc = "Kislev",
+		title="Into the land of Kislev",
+		desc="Into the land of Kislev",
+		mission_desc = "The border to Kislev was in days gone agreed to be where the shadow of the last mountain range reach the open tundra. But no border is needed now, as little living inhabits there plains. We should move along the abandon road - lets hope the men of Kislev still commands these land!",
 	},
 	icon = "ui/small_city_schem_frame_major.png",
 	payload = payload,

@@ -30,7 +30,7 @@ mod.move_mission_kraka_drak = {
 	locs = {
 		title="March to Kraka Drak",
 		desc="March to Kraka Drak",
-		mission_desc = "By royal request, we are to march towards Kraka Drak.",
+		mission_desc = "By royal request by the high armor and captain of the royal guard, we are to march towards Kraka Drak. The inland route to the west should be the fastest! ",
 	},
 	icon = "ui/small_city_schem_frame_major.png",
 	payload = mod.move_mission_kraka_drak_payload,

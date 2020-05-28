@@ -37,9 +37,9 @@ mod[mission_key] = {
 	key = mission_key,
 	ui_offsets = {390, 330},
 	locs = {
-		title="After ice_trolls",
-		desc="After ice_trolls",
-		mission_desc = "After ice_trolls",
+		title="Return to Kraka Ravnsvake",
+		desc="Return to Kraka Ravnsvake",
+		mission_desc = "The vile trolls has been purged from the glacier and the route westward should now be safe. Lets return to Kraka Ravnsvake - troll hunting is as our ancestral tradition dictates concluded with a feast at the local tavern.",
 	},
 	icon = "ui/small_city_schem_frame_major.png",
 	payload = payload,

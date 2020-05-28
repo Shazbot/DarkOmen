@@ -34,7 +34,7 @@ mod.mission_sjoktraken_the_last_hope_inn = {
 	locs = {
 		title="The Last Hope Inn",
 		desc="The Last Hope Inn",
-		mission_desc = "With the main passageways sourth being swamped with trolls and marauding raiders, the realm of the norse dwarfs have been isolated for decades with few tradeing options. A few minor routes still exist south to the men of Kislev, though they are rarely used. The tradeguild of Sjoktraken have requested our services, in a attempt to reopen the pass south to the Last Hope Inn, the most northern presence of the civilized men of the south. The Last Hope in is a few trade houses and a single Inn, which would have been burned down, where it not for its position high on the mountain side, only accessible by its lift.",
+		mission_desc = "With the main passageways sourth being swamped with trolls and marauding raiders, the realm of the norse dwarfs have been isolated for decades with few tradeing options. A few minor routes still exist south to the men of Kislev, though they are rarely used. The tradeguild of Sjoktraken have requested our services, in a attempt to reopen the pass south to the Last Hope Inn, the most northern presence of the civilized men of the south. The Last Hope in was a few trade houses and a single Inn some decades ago. All this would have been burned down, where it not for its position high on the mountain side, only accessible by its lift.",
 	},
 	icon = "ui/small_icon_quest_battle.png",
 	payload = mod.mission_sjoktraken_the_last_hope_inn_payload,

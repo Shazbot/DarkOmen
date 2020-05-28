@@ -34,9 +34,9 @@ mod[mission_key] = {
 	key = mission_key,
 	ui_offsets = {725+103, 425+35+2-90-24},
 	locs = {
-		title="March to Sjoktraken",
-		desc="March to Sjoktraken",
-		mission_desc = "Escort the merchants from Sjoktrakens trader guild back.",
+		title="Return the  to Sjoktraken",
+		desc="Return to Sjoktraken",
+		mission_desc = "The inhabitants of the Last Hope Inn and the envoy to the merchant guild celebrated they renewed contact by forging trade agreements. Four decades had passed since a dwarf last time visited the Inn. Stocked up on exotic goods from the southern lands of Kislev, we are to escort the merchants back to Sjoktraken.",
 	},
 	icon = "ui/small_city_schem_frame_major.png",
 	payload = payload,

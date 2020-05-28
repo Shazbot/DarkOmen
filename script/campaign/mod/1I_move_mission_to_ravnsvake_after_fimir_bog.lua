@@ -37,9 +37,9 @@ mod[mission_key] = {
 	key = mission_key,
 	ui_offsets = {390, 330},
 	locs = {
-		title="After_fimir_bog",
-		desc="After_fimir_bog",
-		mission_desc = "After_fimir_bog",
+		title="Return to Kraka Ravnsvake",
+		desc="Return to Kraka Ravnsvake",
+		mission_desc = "The bog has been cleansed for the Fimir presence. Once again can the valley be used as hunting grounds. Lets return to Kraka Ravnsvake to collect our wagers.",
 	},
 	icon = "ui/small_city_schem_frame_major.png",
 	payload = payload,
