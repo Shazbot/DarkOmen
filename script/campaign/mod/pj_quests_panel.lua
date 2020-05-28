@@ -70,10 +70,12 @@ mod.create_quests_panel = function()
 			img:MoveTo(x-115, y+50)
 
 			local parchment_text = Text.new("pj_quests"..mission_key.."_text", myFrame, "NORMAL", title)
-			parchment_text:Resize(300, 50)
-			local parchment_text_offset_x = mission_data.parchment_text_offset and mission_data.parchment_text_offset[1] or 0
-			local parchment_text_offset_y = mission_data.parchment_text_offset and mission_data.parchment_text_offset[2] or 0
-			parchment_text:MoveTo(x-40+parchment_text_offset_x, y+70+parchment_text_offset_y)
+			parchment_text:Resize(500, 50)
+			local parchment_text_width = parchment_text.uic:TextDimensionsForText(title)
+			img:Resize(parchment_text_width+parchment_text_width/2, 50)
+			img:MoveTo(x-parchment_text_width/2+30-parchment_text_width/4, y+50)
+			parchment_text:Resize(parchment_text_width+parchment_text_width/2, 50)
+			parchment_text:MoveTo(x+30-parchment_text_width/2, y+70)
 		end
 	end
 
