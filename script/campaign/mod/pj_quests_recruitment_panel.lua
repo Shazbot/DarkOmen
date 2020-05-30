@@ -45,7 +45,7 @@ mod.bog_pages = mod.bog_pages or {
 
 --- Add a bunch of grudges so we can have pages to turn in the Book of Grudges.
 mod.add_grudges = function()
-	cm:disable_event_feed_events(true, "all")
+	cm:disable_event_feed_events(true, "all", "", "")
 	for i=1, 6 do
 		local grudge_mission = mission_manager:new(
 		cm:get_local_faction(true),
@@ -60,7 +60,7 @@ mod.add_grudges = function()
 		grudge_mission:set_should_cancel_before_issuing(false);
 		grudge_mission:trigger();
 	end
-	cm:disable_event_feed_events(false, "all")
+	cm:disable_event_feed_events(false, "all", "", "")
 end
 
 --- Current index of the Book of grudges page on the left, tracked to know when to refresh the BoG UI.
