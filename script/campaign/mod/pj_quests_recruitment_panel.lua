@@ -216,6 +216,14 @@ end
 --- Redraw the opened BoG with our own UI.
 mod.redraw_bog = function(page_num)
 	local book_of_grudges = digForComponent(core:get_ui_root(), "book_of_grudges")
+	if not book_of_grudges then return end
+
+	local bog_priority = book_of_grudges:Priority()
+	if bog_priority ~= 200 then
+		book_of_grudges:PropagatePriority(200)
+		book_of_grudges:LockPriority()
+	end
+
 	local grudge_bar = digForComponent(book_of_grudges, "grudge_bar")
 	grudge_bar:SetVisible(false)
 
