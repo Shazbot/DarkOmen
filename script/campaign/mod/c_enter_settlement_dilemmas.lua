@@ -23,21 +23,61 @@ core:add_listener(
 ------------------------------------
 --- after_move_mission_sjoktraken---
 ------------------------------------
-core:remove_listener("after_move_mission_sjoktraken")
+core:remove_listener("after_move_mission_sjoktraken_play_intro_event")
 core:add_listener(
-	"after_move_mission_sjoktraken",
+	"after_move_mission_sjoktraken_play_intro_event",
 	"pj_quests_on_state_changed",
 	function(context)
 		local state = context.string
 		return state == mod.states.in_sjok
 	end,
+	function()
+		cm:callback(function()
+			core:add_listener(
+				"pj_quests_after_event_closed_sjoktraken_intro",
+				"PanelClosedCampaign",
+				function(context)
+					return context.string == "events"
+				end,
+				function()
+					cm:callback(function()
+						core:trigger_event("pj_quests_on_after_event", "after_move_mission_sjoktraken")
+					end, 0.1)
+				end,
+				false
+			)
+
+			cm:show_message_event(
+        cm:get_local_faction(),
+        "event_feed_strings_text_wh_event_feed_string_scripted_event_lord_of_change_defeat_primary_detail",
+        "",
+        "",
+        true,
+        34
+			);
+
+			cm:callback(mod.resize_event, 0.1)
+			cm:callback(mod.resize_event, 0.6)
+		end, 1)
+	end,
+	true
+)
+
+core:remove_listener("after_move_mission_sjoktraken")
+core:add_listener(
+	"after_move_mission_sjoktraken",
+	"pj_quests_on_after_event",
 	function(context)
+		return context.string == "after_move_mission_sjoktraken"
+	end,
+	function()
 		cm:callback(function()
 			cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "after_move_mission_sjoktraken");
 		end, 1)
 	end,
 	true
 )
+
 core:add_listener(
     "after_move_mission_sjoktraken_2",
     "DilemmaChoiceMadeEvent",

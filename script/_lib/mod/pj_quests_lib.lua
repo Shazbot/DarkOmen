@@ -24,3 +24,36 @@ mod.digForComponent = function(startingComponent, componentName, max_depth)
 
 	return digForComponent_iter(startingComponent, componentName, max_depth, 1)
 end
+
+mod.resize_event = function()
+	local digForComponent = mod.digForComponent
+
+	local ui_root = core:get_ui_root()
+	local es = digForComponent(ui_root, "event_standard")
+	local ep = digForComponent(es, "dy_event_picture")
+	local pf = digForComponent(es, "dy_movie_frame")
+	local list = digForComponent(es, "list")
+	local events = digForComponent(ui_root, "events")
+	local button_set = digForComponent(events, "button_set")
+
+	local scale = 4
+
+	ep:SetCanResizeWidth(true)
+	ep:SetCanResizeHeight(true)
+	ep:Resize(380*scale, 214*scale)
+
+	pf:SetCanResizeWidth(true)
+	pf:SetCanResizeHeight(true)
+	pf:Resize(380*scale, 214*scale)
+
+	local w,h = pf:Width(), pf:Height()
+
+	local screen_x, screen_y = core:get_screen_resolution();
+	es:MoveTo(screen_x/2-w/2,screen_y/2-h/2)
+
+	local button_set_w = button_set:Width()
+
+	button_set:MoveTo(screen_x/2-button_set_w/2,screen_y/2+h/2)
+
+	list:SetVisible(false)
+end
