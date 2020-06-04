@@ -33,31 +33,20 @@ core:add_listener(
 	end,
 	function()
 		cm:callback(function()
-			core:add_listener(
-				"pj_quests_after_event_closed_sjoktraken_intro",
-				"PanelClosedCampaign",
-				function(context)
-					return context.string == "events"
-				end,
+			cm:repeat_callback(
 				function()
-					cm:callback(function()
-						core:trigger_event("pj_quests_on_after_event", "after_move_mission_sjoktraken")
-					end, 0.1)
+					if not effect.is_any_movie_playing() then
+						cm:callback(function()
+							core:trigger_event("pj_quests_on_after_event", "after_move_mission_sjoktraken")
+						end, 0.1)
+						cm:remove_callback("pj_quests_check_intro_movie_playing_cb")
+					end
 				end,
-				false
+				0.1,
+				"pj_quests_check_intro_movie_playing_cb"
 			)
 
-			cm:show_message_event(
-        cm:get_local_faction(),
-        "event_feed_strings_text_wh_event_feed_string_scripted_event_lord_of_change_defeat_primary_detail",
-        "",
-        "",
-        true,
-        34
-			);
-
-			cm:callback(mod.resize_event, 0.1)
-			cm:callback(mod.resize_event, 0.6)
+			cm:register_instant_movie("eventpics/chs/everchosen")
 		end, 1)
 	end,
 	true
