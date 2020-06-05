@@ -14,9 +14,9 @@ cm:add_first_tick_callback(function()
 			624,
 			"general",
 			"dwf_norse_lord",
+			"names_name_7884153401",
 			"",
-			"",
-			"",
+			"names_name_7884153402",
 			"",
 			true,
 			function(cqi)
