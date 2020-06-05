@@ -10,10 +10,6 @@ mod.move_mission_sjoktraken_payload = function(char)
 	cm:apply_effect_bundle_to_characters_force("wh2_dlc11_bundle_immune_all_attrition", char:cqi(), -1, false)
 	cm:replenish_action_points(cm:char_lookup_str(char))
 
-	cm:teleport_to(cm:char_lookup_str(char), 710, 624, false) -- start position
-	cm:callback(function()
-		cm:move_to(cm:char_lookup_str(char), 709, 624, false)
-	end, 0.5)
 	cm:callback(function()
 		CampaignUI.ToggleCinematicBorders(true)
 		cm:stop_user_input(true)
