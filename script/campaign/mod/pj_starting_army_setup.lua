@@ -8,7 +8,7 @@ cm:add_first_tick_callback(function()
 		cm:kill_character(local_faction:faction_leader():cqi(),true, false)
 		cm:create_force_with_general(
 			local_faction:name(),
-			"dwf_norse_hammerers,wh_main_dwf_inf_miners_1,wh_main_dwf_inf_miners_1,wh_main_dwf_inf_miners_1,wh_main_dwf_inf_quarrellers_0,wh_main_dwf_inf_quarrellers_0,wh_main_dwf_inf_dwarf_warrior_0,wh_main_dwf_inf_dwarf_warrior_0,wh_dlc06_dwf_inf_rangers_0",
+			"dwf_norse_hammerers,dwf_norse_longbeards,dwf_norse_rangers,dwf_norse_warrior,dwf_norse_quarrellers",
 			"wh_main_blood_river_valley_varenka_hills",
 			710,
 			624,
