@@ -1,4 +1,7 @@
 cm:add_first_tick_callback(function()
+	if not cm:is_new_game() then
+		return
+	end
 
 	cm:fade_scene(0, 0)
 	cm:callback(function()
