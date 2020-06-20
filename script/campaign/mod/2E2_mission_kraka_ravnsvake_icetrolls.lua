@@ -35,6 +35,7 @@ end
 mod[mission_key] = {
 	key = mission_key,
 	ui_offsets = {218, 383},
+	ui_pivot = "top",
 	locs = {
 		title="Glacier Cleansing",
 		desc="Glacier Cleansing",

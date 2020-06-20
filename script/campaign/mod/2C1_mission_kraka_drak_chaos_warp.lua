@@ -31,6 +31,7 @@ end
 mod[mission_key] = {
 	key = mission_key,
 	ui_offsets = {433, 182},
+	ui_pivot = "top",
 	locs = {
 		title="Inside the Warp",
 		desc="Inside the Warp",

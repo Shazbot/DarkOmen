@@ -46,8 +46,12 @@ mod.create_quests_panel = function()
 			local desc = mission_data.locs and mission_data.locs and mission_data.locs.desc or effect.get_localised_string("missions_localised_description_"..mission_key)
 			local quest_button = Button.new("pj_quests_"..mission_key.."_button", myFrame, "CIRCULAR", mission_data.icon)
 			quest_button:Resize(60, 60)
-			local quest_button_x, quest_button_y = unpack(mission_data.ui_offsets)
-			quest_button:PositionRelativeTo(myFrame, -25+quest_button_x*1.32258, -160+quest_button_y*1.184)
+			local data_quest_button_x, data_quest_button_y = unpack(mission_data.ui_offsets)
+
+			local quest_button_x = -25+data_quest_button_x*1.32258
+			local quest_button_y = -160+data_quest_button_y*1.184
+
+			quest_button:PositionRelativeTo(myFrame, quest_button_x, quest_button_y)
 			quest_button.uic:SetTooltipText(title.."||".."Start the \""..desc.."\" quest.",  true)
 
 			quest_button.uic:StartPulseHighlight()
@@ -58,7 +62,10 @@ mod.create_quests_panel = function()
 				start_quest_button:SetDisabled(false)
 
 				local text_width = quest_description_title.uic:TextDimensionsForText(title)
-				quest_description_title:PositionRelativeTo(myFrame, 275+55+238-text_width/2, 140+3*50+200+250-80-50-5)
+
+				local quest_description_x = 275+55+238-text_width/2
+				local quest_description_y = 140+3*50+200+250-80-50-5
+				quest_description_title:PositionRelativeTo(myFrame, quest_description_x, quest_description_y)
 
 				quest_description_title:SetText(title)
 				quest_description:SetText(mission_data.locs.mission_desc)
@@ -73,9 +80,33 @@ mod.create_quests_panel = function()
 			parchment_text:Resize(500, 50)
 			local parchment_text_width = parchment_text.uic:TextDimensionsForText(title)
 			img:Resize(parchment_text_width+parchment_text_width/2, 50)
-			img:MoveTo(x-parchment_text_width/2+30-parchment_text_width/4, y+50)
 			parchment_text:Resize(parchment_text_width+parchment_text_width/2, 50)
-			parchment_text:MoveTo(x+30-parchment_text_width/2, y+70)
+
+			local parchment_text_bg_x = x-parchment_text_width/2+30-parchment_text_width/4
+			local parchment_text_bg_y = y+50
+			local parchement_text_x = x+30-parchment_text_width/2
+			local parchement_text_y = y+70
+
+			local ui_pivot = mission_data.ui_pivot
+			if ui_pivot then
+				local offset_x = 0
+				local offset_y = 0
+
+				if ui_pivot == "right" then
+					offset_x = 110
+					offset_y = -45
+				end
+				if ui_pivot == "top" then
+					offset_x = 0
+					offset_y = -95
+				end
+				parchement_text_x = parchement_text_x+offset_x
+				parchement_text_y = parchement_text_y+offset_y
+				parchment_text_bg_x = parchment_text_bg_x+offset_x
+				parchment_text_bg_y = parchment_text_bg_y+offset_y
+			end
+			img:MoveTo(parchment_text_bg_x, parchment_text_bg_y)
+			parchment_text:MoveTo(parchement_text_x, parchement_text_y)
 		end
 	end
 
@@ -104,6 +135,7 @@ mod.create_quests_panel = function()
 		mod.selected_quest = nil
 	end)
 end
+
 
 cm:add_first_tick_callback(function()
 	core:remove_listener('pj_unit_upgrades_on_clicked_retrain_button34234')
