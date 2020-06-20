@@ -106,7 +106,6 @@ cm:add_first_tick_callback(function()
 	-- Move missions --
 		move_mission_sjoktraken = mod.move_mission_sjoktraken,
 		move_mission_kraka_drak = mod.move_mission_kraka_drak,
-		move_mission_kraka_ravnsvake = mod.move_mission_kraka_ravnsvake,
 		move_mission_sjoktraken_after_shipwreck = mod.move_mission_sjoktraken_after_shipwreck,
 		move_mission_sjoktraken_after_last_inn = mod.move_mission_sjoktraken_after_last_inn,
 		move_mission_kraka_drak_after_beastmen = mod.move_mission_kraka_drak_after_beastmen,
