@@ -22,7 +22,7 @@ end
 
 mod.mission_sjoktraken_shipwreck = {
 	key = "mission_sjoktraken_shipwreck",
-	ui_offsets = {725+103+80, 425+35+2-116-90-2},
+	ui_offsets = {528, 253},
 	parchment_text_offset = {-31, 0},
 	locs = {
 		title="The Last of the Northern Ironclads ",

@@ -30,7 +30,7 @@ end
 
 mod[mission_key] = {
 	key = mission_key,
-	ui_offsets = {725-117, 425-257},
+	ui_offsets = {422, 226},
 	locs = {
 		title="Return to Kraka Drak",
 		desc="Return to Kraka Drak",

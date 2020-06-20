@@ -26,7 +26,7 @@ end
 
 mod.move_mission_sjoktraken_after_shipwreck = {
 	key = "move_mission_sjoktraken_after_shipwreck",
-	ui_offsets = {725+103, 425+35+2-90-24},
+	ui_offsets = {502, 309},
 	locs = {
 		title="Return to Sjoktraken",
 		desc="Return to Sjoktraken",

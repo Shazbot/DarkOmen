@@ -26,7 +26,7 @@ end
 
 mod.move_mission_kraka_drak = {
 	key = "move_mission_kraka_drak",
-	ui_offsets = {725-117, 425-257},
+	ui_offsets = {422, 226},
 	locs = {
 		title="March to Kraka Drak",
 		desc="March to Kraka Drak",

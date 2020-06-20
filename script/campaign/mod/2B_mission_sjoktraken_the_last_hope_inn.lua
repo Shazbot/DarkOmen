@@ -30,7 +30,7 @@ end
 
 mod.mission_sjoktraken_the_last_hope_inn = {
 	key = "mission_sjoktraken_the_last_hope_inn",
-	ui_offsets = {725-40, 425+35+2-100},
+	ui_offsets = {426, 332},
 	locs = {
 		title="The Last Hope Inn",
 		desc="The Last Hope Inn",

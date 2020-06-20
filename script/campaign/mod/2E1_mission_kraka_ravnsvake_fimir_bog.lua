@@ -34,7 +34,7 @@ end
 
 mod[mission_key] = {
 	key = mission_key,
-	ui_offsets = {565, 360},
+	ui_offsets = {401, 336},
 	locs = {
 		title="Hunting Grounds",
 		desc="Hunting Grounds",

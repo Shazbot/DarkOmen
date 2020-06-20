@@ -30,7 +30,7 @@ end
 
 mod[mission_key] = {
 	key = mission_key,
-	ui_offsets = {725-117+20, 425-257-40},
+	ui_offsets = {400, 202},
 	locs = {
 		title="The Beastmen Camp",
 		desc="The Beastmen Camp",

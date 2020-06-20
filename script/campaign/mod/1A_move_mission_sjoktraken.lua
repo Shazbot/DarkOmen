@@ -32,7 +32,7 @@ end
 
 mod.move_mission_sjoktraken = {
 	key = "move_mission_sjoktraken",
-	ui_offsets = {725+103, 425+35+2-90-24},
+	ui_offsets = {502, 309},
 	locs = {
 		title="Move to Sjoktraken",
 		desc="Move to Sjoktraken",

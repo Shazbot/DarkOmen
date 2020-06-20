@@ -47,7 +47,7 @@ mod.create_quests_panel = function()
 			local quest_button = Button.new("pj_quests_"..mission_key.."_button", myFrame, "CIRCULAR", mission_data.icon)
 			quest_button:Resize(60, 60)
 			local quest_button_x, quest_button_y = unpack(mission_data.ui_offsets)
-			quest_button:PositionRelativeTo(myFrame, quest_button_x, quest_button_y - 50)
+			quest_button:PositionRelativeTo(myFrame, -25+quest_button_x*1.32258, -160+quest_button_y*1.184)
 			quest_button.uic:SetTooltipText(title.."||".."Start the \""..desc.."\" quest.",  true)
 
 			quest_button.uic:StartPulseHighlight()

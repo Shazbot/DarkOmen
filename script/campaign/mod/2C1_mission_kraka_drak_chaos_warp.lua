@@ -30,7 +30,7 @@ end
 
 mod[mission_key] = {
 	key = mission_key,
-	ui_offsets = {725-117+40, 425-257-60},
+	ui_offsets = {433, 182},
 	locs = {
 		title="Inside the Warp",
 		desc="Inside the Warp",

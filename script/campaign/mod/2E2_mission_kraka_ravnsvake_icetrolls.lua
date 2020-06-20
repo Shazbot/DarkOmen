@@ -34,7 +34,7 @@ end
 
 mod[mission_key] = {
 	key = mission_key,
-	ui_offsets = {140, 410},
+	ui_offsets = {218, 383},
 	locs = {
 		title="Glacier Cleansing",
 		desc="Glacier Cleansing",

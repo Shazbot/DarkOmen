@@ -29,7 +29,7 @@ end
 
 mod[mission_key] = {
 	key = mission_key,
-	ui_offsets = {135, 505},
+	ui_offsets = {236, 434},
 	locs = {
 		title="Into the land of Kislev",
 		desc="Into the land of Kislev",
