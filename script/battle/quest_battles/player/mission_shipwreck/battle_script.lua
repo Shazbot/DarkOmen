@@ -74,14 +74,22 @@ ga_battle_shipwreck_army_dwf_ally_unit_hammers:defend_on_message("battle_started
 ga_battle_shipwreck_army_dwf_ally_unit_rangers:defend_on_message("battle_started", 251, -132, 50); -- x/y radius
 
 
----Dragon infight---
---works--ga_battle_shipwreck_character_name_npc_ally:attack_force_on_message("battle_started", ga_battle_shipwreck_character_name_npc_enemy,1000); --Ally dragon attack enemy dragon
---works--ga_battle_shipwreck_character_name_npc_enemy:attack_force_on_message("battle_started", ga_battle_shipwreck_character_name_npc_ally,1000); --Enemy dragon attack ally dragon
---works--ga_battle_shipwreck_character_name_npc_ally:teleport_to_start_location_offset_on_message("battle_started",200,200);
+---Dragon/mammoth infight--- 
+--TP mammoth to position and holds (mammoth pen on map)
+-- Waits 1 min and deploys Dragon. Dragon attacks mammoth
+-- Dragon on map is noted by the player with a measege
+-- On 50% hp mammoth flees with, with a auto flee tied to the dragon as well. 
+
 ga_battle_shipwreck_army_npc_enemy_unit_war_mammoth:teleport_to_start_location_offset_on_message("battle_started",200,25);
-ga_battle_shipwreck_character_name_npc_ally:deploy_at_random_intervals_on_message("battle_started",1,1,5000,5000);
-ga_battle_shipwreck_character_name_npc_ally:message_on_deployed("NPC_deployed")
+gb:message_on_time_offset("Wait",60000); -- 1 mins
+ga_battle_shipwreck_character_name_npc_ally:deploy_at_random_intervals_on_message("Wait",1,1,5000,5000);
+ga_battle_shipwreck_character_name_npc_ally:message_on_deployed("NPC_deployed");
+gb:queue_help_on_message("NPC_deployed", "mission_shipwrecke_objective_5_message", 8000, 2000, 1000); 
 ga_battle_shipwreck_character_name_npc_ally:attack_force_on_message("NPC_deployed", ga_battle_shipwreck_army_npc_enemy_unit_war_mammoth,1000);
+ga_battle_shipwreck_army_npc_enemy_unit_war_mammoth:message_on_casualties("mammoth_flee",0.5);
+ga_battle_shipwreck_army_npc_enemy_unit_war_mammoth:rout_over_time_on_message("mammoth_flee",5000);
+ga_battle_shipwreck_character_name_npc_ally:rout_over_time_on_message("mammoth_flee",15000);
+
 -------------------------------------------------------------------------------------------------
 ------------------------------------------- OBJECTIVES ------------------------------------------
 -------------------------------------------------------------------------------------------------
