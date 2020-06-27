@@ -1,25 +1,6 @@
 PJ_QUESTS = PJ_QUESTS or {}
 local mod = PJ_QUESTS
 
-
----------------------------------------
----game_start--------------------------
---------------------------------------
-core:remove_listener("Intro")
-core:add_listener(
-	"Intro",
-	"pj_quests_on_state_changed",
-	function(context)
-		local state = context.string
-		return state == mod.states.game_start
-	end,
-	function(context)
-		cm:callback(function()
-			cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "Intro");
-		end, 1)
-	end,
-	true
-)
 ------------------------------------
 --- after_move_mission_sjoktraken---
 ------------------------------------
@@ -231,22 +212,22 @@ core:add_listener(
 	end,
 	true
 )
+
+----------------------------------------------------------------
+--- END  ---------------------------------
+---------------------------------------------------------------
+core:remove_listener("Game_End")
 core:add_listener(
-    "after_in_drak_after_beastmen_2",
-    "DilemmaChoiceMadeEvent",
-    true,
-    function(context)
-            if context:dilemma() == "after_in_drak_after_beastmen"
-            then
-                    if context:choice() == 0
-                    then
-                            cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "after_in_drak_after_beastmen_2");
-                    end;
-                    if context:choice() == 1
-                    then
-                            cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "after_in_drak_after_beastmen_2");
-                    end;
-            end;
-    end,
-    true
+	"Game_End",
+	"pj_quests_on_state_changed",
+	function(context)
+		local state = context.string
+		return state == mod.states.game_end
+	end,
+	function(context)
+		cm:callback(function()
+			cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "game_end");
+		end, 1)
+	end,
+	true
 )

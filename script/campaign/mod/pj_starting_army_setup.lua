@@ -4,9 +4,11 @@ cm:add_first_tick_callback(function()
 	end
 
 	cm:fade_scene(0, 0)
+
 	cm:callback(function()
 		cm:disable_event_feed_events(true, "all", "", "")
-
+		cm:treasury_mod("wh2_main_dwf_karak_zorn", -10000)
+		cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "intro")
 		local local_faction = cm:get_faction(cm:get_local_faction(true))
 		cm:kill_character(local_faction:faction_leader():cqi(),true, false)
 		cm:create_force_with_general(

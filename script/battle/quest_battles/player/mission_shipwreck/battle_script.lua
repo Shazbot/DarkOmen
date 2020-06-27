@@ -36,10 +36,12 @@ gb:set_cutscene_during_deployment(true);
 -------------------------------------------------------------------------------------------------
 ga_player = gb:get_army(gb:get_player_alliance_num(), 2, ""); -- player defender
 ga_battle_shipwreck_character_name_dwf_ally = gb:get_army(gb:get_player_alliance_num(),"battle_shipwreck_character_name_dwf_ally"); -- char/army
+ga_battle_shipwreck_character_name_npc_ally = gb:get_army(gb:get_player_alliance_num(),"battle_shipwreck_character_name_npc_ally"); -- NPC ally
 ga_battle_shipwreck_character_name_nor = gb:get_army(gb:get_non_player_alliance_num(),"battle_shipwreck_character_name_nor"); -- char/army
+ga_battle_shipwreck_character_name_npc_enemy = gb:get_army(gb:get_non_player_alliance_num(),"battle_shipwreck_character_name_npc_enemy"); -- NPC enemy
 ga_battle_shipwreck_army_dwf_ally_unit_hammers = gb:get_army(gb:get_player_alliance_num(),"battle_shipwreck_army_dwf_ally_unit_hammers"); -- units
 ga_battle_shipwreck_army_dwf_ally_unit_rangers = gb:get_army(gb:get_player_alliance_num(),"battle_shipwreck_army_dwf_ally_unit_rangers"); -- units
-
+ga_battle_shipwreck_army_npc_enemy_unit_war_mammoth = gb:get_army(gb:get_non_player_alliance_num(),"battle_shipwreck_army_npc_enemy_unit_war_mammoth"); -- NPC enemy unit mammoth
 -------------------------------------------------------------------------------------------------
 ----------------------------------------- ARMY TELEPORT -----------------------------------------
 -------------------------------------------------------------------------------------------------
@@ -49,7 +51,6 @@ ga_battle_shipwreck_army_dwf_ally_unit_rangers = gb:get_army(gb:get_player_allia
 -------------------------------------------------------------------------------------------------
 ------------------------------------------- CUTSCENE --------------------------------------------
 -------------------------------------------------------------------------------------------------
-
 
 
 -------------------------------------------------------------------------------------------------
@@ -66,6 +67,21 @@ gb:fail_objective_on_message("battle_shipwreck_character_name_dwf_ally_dead", "m
 ga_battle_shipwreck_character_name_nor:force_victory_on_message("battle_shipwreck_army_dwf_ally_unit_hammers_dying", 10000); -- Fail: Defend the Ironclad and its crew  
 ga_battle_shipwreck_character_name_nor:force_victory_on_message("battle_shipwreck_army_dwf_ally_unit_rangers_dying", 10000); -- Fail: Defend the Ironclad and its crew  
 ga_battle_shipwreck_character_name_nor:force_victory_on_message("battle_shipwreck_character_name_dwf_ally_dead", 10000); -- Fail: Ensure the Master Engineer's survival
+
+-- Ally Dwarfs defends--
+ga_battle_shipwreck_character_name_dwf_ally:defend_on_message("battle_started", 251, -132, 50); -- x/y radius
+ga_battle_shipwreck_army_dwf_ally_unit_hammers:defend_on_message("battle_started", 251, -132, 50); -- x/y radius
+ga_battle_shipwreck_army_dwf_ally_unit_rangers:defend_on_message("battle_started", 251, -132, 50); -- x/y radius
+
+
+---Dragon infight---
+--works--ga_battle_shipwreck_character_name_npc_ally:attack_force_on_message("battle_started", ga_battle_shipwreck_character_name_npc_enemy,1000); --Ally dragon attack enemy dragon
+--works--ga_battle_shipwreck_character_name_npc_enemy:attack_force_on_message("battle_started", ga_battle_shipwreck_character_name_npc_ally,1000); --Enemy dragon attack ally dragon
+--works--ga_battle_shipwreck_character_name_npc_ally:teleport_to_start_location_offset_on_message("battle_started",200,200);
+ga_battle_shipwreck_army_npc_enemy_unit_war_mammoth:teleport_to_start_location_offset_on_message("battle_started",200,25);
+ga_battle_shipwreck_character_name_npc_ally:deploy_at_random_intervals_on_message("battle_started",1,1,5000,5000);
+ga_battle_shipwreck_character_name_npc_ally:message_on_deployed("NPC_deployed")
+ga_battle_shipwreck_character_name_npc_ally:attack_force_on_message("NPC_deployed", ga_battle_shipwreck_army_npc_enemy_unit_war_mammoth,1000);
 -------------------------------------------------------------------------------------------------
 ------------------------------------------- OBJECTIVES ------------------------------------------
 -------------------------------------------------------------------------------------------------
