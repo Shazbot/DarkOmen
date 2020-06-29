@@ -18,7 +18,7 @@ core:add_listener(
 				function()
 					if not effect.is_any_movie_playing() then
 						cm:callback(function()
-							core:trigger_event("pj_quests_on_after_event", "after_move_mission_sjoktraken")
+							core:trigger_event("pj_quests_play_movie", "sjok_1")
 						end, 0.1)
 						cm:remove_callback("pj_quests_check_intro_movie_playing_cb")
 					end
@@ -28,6 +28,34 @@ core:add_listener(
 			)
 
 			cm:play_movie_in_ui("eventpics/chs/everchosen")
+		end, 1)
+	end,
+	true
+)
+
+core:remove_listener("after_move_mission_sjoktraken_play_sjok_movie_1")
+core:add_listener(
+	"after_move_mission_sjoktraken_play_sjok_movie_1",
+	"pj_quests_play_movie",
+	function(context)
+		return context.string == "sjok_1"
+	end,
+	function()
+		cm:callback(function()
+			cm:repeat_callback(
+				function()
+					if not effect.is_any_movie_playing() then
+						cm:callback(function()
+							core:trigger_event("pj_quests_on_after_event", "after_move_mission_sjoktraken")
+						end, 0.1)
+						cm:remove_callback("pj_quests_check_intro_movie_playing_cb")
+					end
+				end,
+				0.1,
+				"pj_quests_check_intro_movie_playing_cb"
+			)
+
+			cm:play_movie_in_ui("eventpics/chs/wh2_treasure_hunt_2")
 		end, 1)
 	end,
 	true
@@ -51,19 +79,34 @@ core:add_listener(
 core:add_listener(
     "after_move_mission_sjoktraken_2",
     "DilemmaChoiceMadeEvent",
-    true,
-    function(context)
-            if context:dilemma() == "after_move_mission_sjoktraken"
-            then
-                    if context:choice() == 0
-                    then
-                            cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "after_move_mission_sjoktraken_2");
-                    end;
-                    if context:choice() == 1
-                    then
-                            cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "after_move_mission_sjoktraken_2");
-                    end;
-            end;
+		function(context)
+			return context:dilemma() == "after_move_mission_sjoktraken"
+		end,
+		function(context)
+			local choice = context:choice()
+			cm:callback(function()
+				cm:repeat_callback(
+					function()
+						if not effect.is_any_movie_playing() then
+							cm:callback(function()
+								if choice == 0
+								then
+												cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "after_move_mission_sjoktraken_2");
+								end;
+								if choice == 1
+								then
+												cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "after_move_mission_sjoktraken_2");
+								end
+							end, 0.1)
+							cm:remove_callback("pj_quests_check_intro_movie_playing_cb")
+						end
+					end,
+					0.1,
+					"pj_quests_check_intro_movie_playing_cb"
+				)
+
+				cm:play_movie_in_ui("eventpics/chs/wh2_treasure_hunt_3")
+			end, 0.5)
     end,
     true
 )
@@ -152,7 +195,20 @@ core:add_listener(
 	end,
 	function(context)
 		cm:callback(function()
-			cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "after_move_mission_kraka_drak");
+			cm:repeat_callback(
+				function()
+					if not effect.is_any_movie_playing() then
+						cm:callback(function()
+							cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "after_move_mission_kraka_drak");
+						end, 0.1)
+						cm:remove_callback("pj_quests_check_intro_movie_playing_cb")
+					end
+				end,
+				0.1,
+				"pj_quests_check_intro_movie_playing_cb"
+			)
+
+			cm:play_movie_in_ui("eventpics/chs/wh2_treasure_hunt_4")
 		end, 1)
 	end,
 	true
