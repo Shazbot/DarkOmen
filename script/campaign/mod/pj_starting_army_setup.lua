@@ -42,3 +42,26 @@ cm:add_first_tick_callback(function()
 	end, 5)
 
 end)
+
+cm:add_first_tick_callback(function()
+	local ui_root = core:get_ui_root()
+
+	for _, button_id in ipairs({"button_diplomacy", "button_missions", "button_technology", "button_mortuary_cult"}) do
+		local button = find_uicomponent(ui_root, "layout", "faction_buttons_docker", "button_group_management", button_id)
+		if button then
+			button:SetVisible(false)
+		end
+	end
+
+	local button_grudges = find_uicomponent(ui_root, "layout", "faction_buttons_docker", "button_group_management", "button_grudges")
+	if button_grudges then
+		button_grudges:SetTooltipText("Recruitment Ledger", true)
+	end
+
+	local button_end_turn = find_uicomponent(ui_root, "layout", "faction_buttons_docker", "end_turn_docker", "button_end_turn")
+	if button_end_turn then
+		button_end_turn:SetDisabled(true)
+	end
+
+	cm:force_diplomacy("faction:" .. cm:get_local_faction(true), "faction:wh_main_dwf_kraka_drak", "war", false, false, true);
+end)
