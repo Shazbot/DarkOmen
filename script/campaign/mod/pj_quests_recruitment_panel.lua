@@ -249,6 +249,19 @@ mod.redraw_bog = function(page_num)
 	end
 end
 
+mod.on_book_of_grudges_panel_opening = function()
+	local book_of_grudges = digForComponent(core:get_ui_root(), "book_of_grudges")
+	if not book_of_grudges then return end
+	local dy_page = digForComponent(book_of_grudges, "dy_page")
+	if not dy_page then return end
+	local text = dy_page:GetStateText()
+	local current_page = tonumber(string.sub(text, 1, string.find(text, "/")-1))
+	if not mod.current_bog_page or mod.current_bog_page ~= current_page then
+		mod.current_bog_page = current_page
+		mod.redraw_bog(current_page*2-1)
+	end
+end
+
 local function init()
 	mod.add_grudges()
 	mod.remove_invalid_recruitment_entries()
@@ -264,21 +277,12 @@ local function init()
 		function()
 			cm:remove_callback("pj_quests_book_of_grudges_update_id")
 			cm:repeat_callback(
-				function()
-					local book_of_grudges = digForComponent(core:get_ui_root(), "book_of_grudges")
-					if not book_of_grudges then return end
-					local dy_page = digForComponent(book_of_grudges, "dy_page")
-					if not dy_page then return end
-					local text = dy_page:GetStateText()
-					local current_page = tonumber(string.sub(text, 1, string.find(text, "/")-1))
-					if not mod.current_bog_page or mod.current_bog_page ~= current_page then
-						mod.current_bog_page = current_page
-						mod.redraw_bog(current_page*2-1)
-					end
-				end,
-				0.1,
+				mod.on_book_of_grudges_panel_opening,
+				0,
 				"pj_quests_book_of_grudges_update_id"
 			)
+
+			mod.on_book_of_grudges_panel_opening()
 		end,
 		true
 	)
