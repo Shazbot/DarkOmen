@@ -50,27 +50,52 @@ mod.adjust_camera_settings = function()
 	end, 0.1)
 end
 
+cm:add_first_tick_callback(function()
+	core:remove_listener("pj_wait_for_teleport_button_cb")
+	core:add_listener(
+			"pj_wait_for_teleport_button_cb",
+			"RealTimeTrigger",
+			function(context)
+					return context.string == "pj_wait_for_teleport_button"
+			end,
+			function()
+				local teleport_button = digForComponent(core:get_ui_root(), "button_teleport")
+				if teleport_button then
+					real_timer.unregister("pj_wait_for_teleport_button")
+					real_timer.unregister("pj_wait_for_start_battle_button")
+					real_timer.register_repeating("pj_wait_for_start_battle_button", 0)
+					teleport_button:SimulateLClick()
+				end
+			end,
+			true
+	)
+
+	core:remove_listener("pj_wait_for_start_battle_button_cb")
+	core:add_listener(
+			"pj_wait_for_start_battle_button_cb",
+			"RealTimeTrigger",
+			function(context)
+					return context.string == "pj_wait_for_start_battle_button"
+			end,
+			function()
+				local button_tick = find_uicomponent(
+					core:get_ui_root(),
+					"dialogue_box","ok_group", "button_tick"
+				)
+				if button_tick then
+					real_timer.unregister("pj_wait_for_start_battle_button")
+					button_tick:SimulateLClick()
+				end
+			end,
+			true
+	)
+end)
+
 --- Start a quest and immediately start the battle.
 mod.force_start_quest_battle = function(quest_key)
+	real_timer.unregister("pj_wait_for_teleport_button")
+	real_timer.register_repeating("pj_wait_for_teleport_button", 0)
 	cm:trigger_mission(cm:get_local_faction(true), quest_key, true)
-	cm:repeat_callback(function()
-		cm:repeat_callback(function()
-			local button_tick = find_uicomponent(
-				core:get_ui_root(),
-				"dialogue_box","ok_group", "button_tick"
-			)
-			if button_tick then
-				cm:remove_callback("pj_quests_repeat_unit_ok_button_found")
-				button_tick:SimulateLClick()
-			end
-		end, 0.1, "pj_quests_repeat_unit_ok_button_found")
-
-		local teleport_button = digForComponent(core:get_ui_root(), "button_teleport")
-		if teleport_button then
-			cm:remove_callback("pj_quests_repeat_unit_teleport_button_found")
-			teleport_button:SimulateLClick()
-		end
-	end, 0.1, "pj_quests_repeat_unit_teleport_button_found")
 end
 
 --- Select the first lord/army of the local faction.
