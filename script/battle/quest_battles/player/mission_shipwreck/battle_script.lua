@@ -73,12 +73,6 @@ ga_battle_shipwreck_army_nor_unit_all:force_victory_on_message("battle_shipwreck
 ga_battle_shipwreck_army_nor_unit_all:message_on_rout_proportion("battle_shipwreck_army_nor_unit_all_routing", 0.85); -- 0,85 dead or routing across enemy units and lords
 ga_battle_shipwreck_army_nor_unit_all:rout_over_time_on_message("battle_shipwreck_army_nor_unit_all_routing",15000); -- Set the rest of the units to mass rout 15 sec
 ga_player:force_victory_on_message("battle_shipwreck_army_nor_unit_all_routing", 20000); -- Player wins  20sec
--------------------------------------------------------------------------------------------------
--- ------------------------------------ALLY DEFENDS-----------------------------------------------
---------------------------------------------------------------------------------------------------
-ga_battle_shipwreck_character_name_dwf_ally:defend_on_message("battle_started", 251, -132, 50); -- x/y radius
-ga_battle_shipwreck_army_dwf_ally_unit_hammers:defend_on_message("battle_started", 251, -132, 50); -- x/y radius
-ga_battle_shipwreck_army_dwf_ally_unit_rangers:defend_on_message("battle_started", 251, -132, 50); -- x/y radius
 
 -------------------------------------------------------------------------------------------------
 --------------------------------- TIME KEEPER FROM BATTLE START --------------------------------
@@ -105,14 +99,28 @@ gb:message_on_time_offset("Wait_18min",1080000);
 gb:message_on_time_offset("Wait_19min",1140000);
 gb:message_on_time_offset("Wait_20min",1200000);
 
+
+-------------------------------------------------------------------------------------------------
+---------------------------------------CUSTOM ORDERS----------------------------------------------
+--------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------
+---------------------------------------ALLY DEFENDS-----------------------------------------------
+--------------------------------------------------------------------------------------------------
+
+ga_battle_shipwreck_character_name_dwf_ally:defend_on_message("battle_started", 251, -132, 50); -- x/y radius
+ga_battle_shipwreck_army_dwf_ally_unit_hammers:defend_on_message("battle_started", 251, -132, 50); -- x/y radius
+ga_battle_shipwreck_army_dwf_ally_unit_rangers:defend_on_message("battle_started", 251, -132, 50); -- x/y radius
+
 -------------------------------------------------------------------------------------------------
 ------------------------------------------ DRAGON/MAMMOTH INFIGHT------------------------------------
 -------------------------------------------------------------------------------------------------
+
 -- TP mammoth and lord to position and holds (mammoth pen on map) ---- Waits 1 min and deploys Dragon. ---- Dragon attacks mammoth (and lord) --
 -- Dragon on map is noted by the player with a measege   ---- Lord flee on proxi to dragon, mammoth flees after fighting and at 50%hp with.
 -- Auto flee tied to the dragon to prevent it from joining in-- 
 
--- Dragon and mammoth infight---
+-------------------------------------- Dragon and mammoth infight----------------------------------
 ga_battle_shipwreck_army_nor_1_unit_war_mammoth:teleport_to_start_location_offset_on_message("battle_started",200,25);-- tp at deployment
 ga_battle_shipwreck_character_name_npc_ally:deploy_at_random_intervals_on_message("Wait_1min",1,1,6000,6000); -- after 1 min dragon deploys
 ga_battle_shipwreck_character_name_npc_ally:message_on_deployed("NPC_deployed"); -- meassage on dragon deployment
@@ -122,14 +130,15 @@ ga_battle_shipwreck_army_nor_1_unit_war_mammoth:message_on_casualties("mammoth_f
 ga_battle_shipwreck_army_nor_1_unit_war_mammoth:rout_over_time_on_message("mammoth_flee",5000);  -- mammoth starts fleeing
 ga_battle_shipwreck_character_name_npc_ally:rout_over_time_on_message("mammoth_flee",15000); -- Dragon "flees" as well
 
--- Accompanying lord flee on sight--
+--------------------------------------- Accompanying lord flee on sight------------------------------
 ga_battle_shipwreck_character_name_nor_1:teleport_to_start_location_offset_on_message("battle_started",200,26); -- tp at deployment
 ga_battle_shipwreck_character_name_nor_1:message_on_proximity_to_enemy("Dragon_here",20); -- dragon is close
 ga_battle_shipwreck_character_name_nor_1:rout_over_time_on_message("Dragon_here",1000); -- Lord Flees
 
 -------------------------------------------------------------------------------------------------
----------------------------------Enemy Reinforcement army --------------------------------
+---------------------------------Enemy Reinforcement army --------------------------------------
 -------------------------------------------------------------------------------------------------
+
 -- Start 5 mins in, with a 1 to 1 mins between reinforcements chunks of 1-2
 ga_battle_shipwreck_character_name_reinforcement_enemy_whole_army:deploy_at_random_intervals_on_message("Wait_5min",1,2,60000,60000); -- after 5 min at intervals of 1 min 1-2 units joins the fight
 
