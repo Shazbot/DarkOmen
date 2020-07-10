@@ -57,10 +57,10 @@ gb:set_cutscene_during_deployment(true);
 -------------------------------------------------------------------------------------------------
 
 gb:set_objective_on_message("deployment_started", "mission_kraka_ravnsvake_fimir_bog_objective_1_tooltip");
-gb:set_objective_on_message("deployment_started", "mission_kraka_ravnsvake_fimir bog_objective_2_tooltip");
+gb:set_objective_on_message("deployment_started", "mission_kraka_ravnsvake_fimir_bog_objective_2_tooltip");
 
 -------------------------------------------------------------------------------------------------
 --------------------------------------------- HINTS/MESSAGES ---------------------------------------------
 -------------------------------------------------------------------------------------------------
 
-gb:queue_help_on_message("battle_started", "mission_kraka_ravnsvake_fimir bog_objective_3_message", 8000, 2000, 1000);
+gb:queue_help_on_message("battle_started", "mission_kraka_ravnsvake_fimir_bog_objective_3_message", 8000, 2000, 1000);

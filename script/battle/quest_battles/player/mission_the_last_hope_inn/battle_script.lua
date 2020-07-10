@@ -43,7 +43,7 @@ ga_battle_the_last_hope_inn_army_emp_ally_huntsmen = gb:get_army(gb:get_player_a
 ga_battle_the_last_hope_inn_character_name_dwf_ally = gb:get_army(gb:get_player_alliance_num(),"battle_the_last_hope_inn_character_name_dwf_ally"); -- Lord
 ga_battle_the_last_hope_inn_army_dwf_ally_wagon = gb:get_army(gb:get_player_alliance_num(),"battle_the_last_hope_inn_army_dwf_ally_wagon"); -- war wagon 
 ------------------------------------------ENEMY---------------------------------------------------
-ga_battle_the_last_hope_inn_army_nor_unit_all = gb:get_army(gb:get_non_player_alliance_num(),"battle_the_last_hope_inn_army_nor_unit_all"); -- Spearmen/Berserkes/Chariot
+ga_battle_the_last_hope_inn_army_nor_unit_all = gb:get_army(gb:get_non_player_alliance_num(),"battle_the_last_hope_inn_army_nor_unit_all"); -- Lord/Spearmen/Berserkes/Chariot
 ------------------------------------------ENEMY REINFORCEMENT---------------------------------------------------
 ga_battle_the_last_hope_inn_army_reinforcement_enemy_whole_army = gb:get_army(gb:get_non_player_alliance_num(),"battle_the_last_hope_inn_army_reinforcement_enemy_whole_army"); -- Reinforcement enemy army
 
@@ -98,9 +98,11 @@ gb:message_on_time_offset("Wait_20min",1200000);
 
 ------------------------------------------ENEMY DEFENDS-------------------------------------------
 ga_battle_the_last_hope_inn_army_nor_unit_all:defend_on_message("deployment_started", -5.0, 100.0, 50); -- x/y radius
+
 ------------------------------------------PROXIMITY TRIGGER ATTACK-------------------------------------------
 ga_player:message_on_proximity_to_enemy("proximity_to_enemy", 160); 
 ga_battle_the_last_hope_inn_army_nor_unit_all:attack_on_message("proximity_to_enemy");
+
 ------------------------------------------ATTACK TRIGGER ATTACK-------------------------------------------
 ga_battle_the_last_hope_inn_army_nor_unit_all:message_on_under_attack("under_attack");
 ga_battle_the_last_hope_inn_army_nor_unit_all:attack_on_message("under_attack");

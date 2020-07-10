@@ -268,7 +268,114 @@ core:add_listener(
 	end,
 	true
 )
-
+----------------------------------------------------------------
+--- after skaven ambush (battle) ---------------------------------
+---------------------------------------------------------------
+core:remove_listener("after_mountain_pass_ambush")
+core:add_listener(
+	"after_mountain_pass_ambush",
+	"pj_quests_on_state_changed",
+	function(context)
+		local state = context.string
+		return state == mod.states.after_mountain_pass_ambush
+	end,
+	function(context)
+		cm:callback(function()
+			cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "after_mountain_pass_ambush");
+		end, 1)
+	end,
+	true
+)
+----------------------------------------------------------------
+--- in_kraka_ravn ---------------------------------
+---------------------------------------------------------------
+core:remove_listener("in_kraka_ravn")
+core:add_listener(
+	"in_kraka_ravn",
+	"pj_quests_on_state_changed",
+	function(context)
+		local state = context.string
+		return state == mod.states.in_kraka_ravn
+	end,
+	function(context)
+		cm:callback(function()
+			cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "in_kraka_ravn");
+		end, 1)
+	end,
+	true
+)
+----------------------------------------------------------------
+--- after_ice_trolls ---------------------------------
+---------------------------------------------------------------
+core:remove_listener("after_ice_trolls")
+core:add_listener(
+	"after_ice_trolls",
+	"pj_quests_on_state_changed",
+	function(context)
+		local state = context.string
+		return state == mod.states.after_ice_trolls
+	end,
+	function(context)
+		cm:callback(function()
+			cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "after_ice_trolls");
+		end, 1)
+	end,
+	true
+)
+----------------------------------------------------------------
+--- after_fimir_bog ---------------------------------
+---------------------------------------------------------------
+core:remove_listener("after_fimir_bog")
+core:add_listener(
+	"after_fimir_bog",
+	"pj_quests_on_state_changed",
+	function(context)
+		local state = context.string
+		return state == mod.states.after_fimir_bog
+	end,
+	function(context)
+		cm:callback(function()
+			cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "after_fimir_bog");
+		end, 1)
+	end,
+	true
+)
+----------------------------------------------------------------
+--- in_kraka_ravn_after_ice_trolls ---------------------------------
+---------------------------------------------------------------
+core:remove_listener("in_kraka_ravn_after_ice_trolls")
+core:add_listener(
+	"in_kraka_ravn_after_ice_trolls",
+	"pj_quests_on_state_changed",
+	function(context)
+		local state = context.string
+		return state == mod.states.in_kraka_ravn_after_ice_trolls
+	end,
+	function(context)
+		cm:callback(function()
+			cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "in_kraka_ravn_after_ice_trolls");
+		end, 1)
+	end,
+	true
+)
+----------------------------------------------------------------
+--- in_kraka_ravn_after_fimir_bog ---------------------------------
+---------------------------------------------------------------
+core:remove_listener("in_kraka_ravn_after_fimir_bog")
+core:add_listener(
+	"in_kraka_ravn_after_fimir_bog",
+	"pj_quests_on_state_changed",
+	function(context)
+		local state = context.string
+		return state == mod.states.in_kraka_ravn_after_fimir_bog
+	end,
+	function(context)
+		cm:callback(function()
+			cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "in_kraka_ravn_after_fimir_bog");
+		end, 1)
+	end,
+	true
+)
 ----------------------------------------------------------------
 --- END  ---------------------------------
 ---------------------------------------------------------------
