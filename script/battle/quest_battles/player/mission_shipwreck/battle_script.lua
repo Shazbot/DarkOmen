@@ -150,3 +150,7 @@ gb:queue_help_on_message("battle_started", "mission_shipwrecke_objective_3_messa
 gb:queue_help_on_message("battle_shipwreck_character_name_dwf_ally_dead", "mission_shipwrecke_objective_4_fail_message", 8000, 2000, 1000); -- The Crew is dead, all is lost. 
 gb:queue_help_on_message("battle_shipwreck_army_dwf_ally_unit_hammers_dying", "mission_shipwrecke_objective_4_fail_message", 8000, 2000, 1000); -- The Crew is dead, all is lost. 
 gb:queue_help_on_message("battle_shipwreck_army_dwf_ally_unit_rangers_dying", "mission_shipwrecke_objective_4_fail_message", 8000, 2000, 1000); -- The Crew is dead, all is lost. 
+
+
+-------------------------------------------------TESTING------------------------------------
+

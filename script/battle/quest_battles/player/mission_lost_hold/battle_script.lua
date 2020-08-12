@@ -2,8 +2,8 @@
 ------------------------------------------- KEY INFO --------------------------------------------
 -------------------------------------------------------------------------------------------------
 -- ReunitingLostKins
--- mission_kraka_ravnsvake_fimir bog
--- Attacker
+-- mission_lost_hold
+-- attacker
 -------------------------------------------------------------------------------------------------
 ------------------------------------------- PRELOADS --------------------------------------------
 -------------------------------------------------------------------------------------------------
@@ -36,22 +36,20 @@ gb:set_cutscene_during_deployment(true);
 -------------------------------------------------------------------------------------------------
 
 ------------------------------------------PLAYER---------------------------------------------------
-ga_player = gb:get_army(gb:get_player_alliance_num(), 2, ""); -- defender
-
-
+ga_player = gb:get_army(gb:get_player_alliance_num(), 1, ""); -- attacker
 ------------------------------------------ALLY---------------------------------------------------
-------------------------------------------ENEMY---------------------------------------------------
-------------------------------------------ENEMY REINFORCEMENT---------------------------------------------------
+ga_battle_lost_hold_character_name_dwf_ally = gb:get_army(gb:get_player_alliance_num(),"battle_lost_hold_character_name_dwf_ally"); -- #0 Char + units
+ga_battle_lost_hold_character_name_dwf_ally_1 = gb:get_army(gb:get_player_alliance_num(),"battle_lost_hold_character_name_dwf_ally_1"); -- #1 Char + units
+--ga_battle_lost_hold_character_name_dwf_ally_2 = gb:get_army(gb:get_player_alliance_num(),"battle_lost_hold_character_name_dwf_ally_2"); -- #2 Char + units
+
+ ------------------------------------------ENEMY---------------------------------------------------
+ga_battle_lost_hold_character_name_nor = gb:get_army(gb:get_non_player_alliance_num(),"battle_lost_hold_character_name_nor"); -- #0 Char + units
+ga_battle_lost_hold_character_name_nor_1 = gb:get_army(gb:get_non_player_alliance_num(),"battle_lost_hold_character_name_nor_1"); -- #1 Char + units
+--ga_battle_lost_hold_character_name_nor_2 = gb:get_army(gb:get_non_player_alliance_num(),"battle_lost_hold_character_name_nor_2"); -- #2 Char + units
 
 -------------------------------------------------------------------------------------------------
 ------------------------------------------ OBJECTIVES -------------------------------------------
 -------------------------------------------------------------------------------------------------
-gb:set_objective_on_message("deployment_started", "mission_kraka_ravnsvake_fimir_bog_objective_1_tooltip");
-gb:set_objective_on_message("deployment_started", "mission_kraka_ravnsvake_fimir_bog_objective_2_tooltip");
-
-------------------------------------------FAIL---------------------------------------------------
-
-------------------------------------------WIN---------------------------------------------------
 
 -------------------------------------------------------------------------------------------------
 --------------------------------- TIME KEEPER FROM BATTLE START --------------------------------
@@ -86,17 +84,20 @@ gb:message_on_time_offset("Wait_20min",1200000);
 -------------------------------------------------------------------------------------------------
 ---------------------------------------ALLY DEFENDS-----------------------------------------------
 --------------------------------------------------------------------------------------------------
+--ga_battle_lost_hold_character_name_dwf_ally:defend_on_message("battle_started", 251, -132, 50);
+-------------------------------------------------------------------------------------------------
+-------------------------------------- REINFORCEMENT --------------------------------------------
+-------------------------------------------------------------------------------------------------
+ga_battle_lost_hold_character_name_nor_1:reinforce_on_message("Wait_1min", 10000);
+--ga_battle_lost_hold_character_name_nor_2:deploy_at_random_intervals_on_message("Wait_3min",1,2,60000,60000); 
 
--------------------------------------------------------------------------------------------------
----------------------------------Enemy Reinforcement army --------------------------------------
--------------------------------------------------------------------------------------------------
+ga_battle_lost_hold_character_name_dwf_ally_1:reinforce_on_message("Wait_1min", 10000);
+--ga_battle_lost_hold_character_name_dwf_ally_2:deploy_at_random_intervals_on_message("Wait_3min",1,2,60000,60000); 
 
 -------------------------------------------------------------------------------------------------
 --------------------------------------------- HINTS/MESSAGES ---------------------------------------------
 -------------------------------------------------------------------------------------------------
 
--------------------------------------------------------------------------------------------------
---------------------------------------------- HINTS/MESSAGES ---------------------------------------------
--------------------------------------------------------------------------------------------------
 
-gb:queue_help_on_message("battle_started", "mission_kraka_ravnsvake_fimir_bog_objective_3_message", 8000, 2000, 1000);
+-------------------------------------------------TESTING------------------------------------
+
