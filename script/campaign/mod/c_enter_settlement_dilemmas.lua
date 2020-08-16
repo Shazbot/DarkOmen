@@ -139,10 +139,18 @@ core:add_listener(
 		local state = context.string
 		return state == mod.states.in_sjok_after_shipwreck
 	end,
-	function(context)
+	function()
 		cm:callback(function()
-			cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "after_move_mission_sjoktraken_after_shipwreck");
-		end, 1)
+			mod.play_rite()
+			cm:callback(function()
+				mod.open_contract_complete_panel(
+					5000,
+					function()
+						cm:trigger_dilemma("wh2_main_dwf_karak_zorn", "after_move_mission_sjoktraken_after_shipwreck")
+					end
+				)
+			end, 4.5)
+		end, 0.7)
 	end,
 	true
 )
