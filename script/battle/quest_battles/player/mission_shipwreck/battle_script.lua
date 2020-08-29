@@ -44,7 +44,7 @@ ga_battle_shipwreck_army_dwf_ally_unit_rangers = gb:get_army(gb:get_player_allia
 ------------------------------------------DRAGON---------------------------------------------------
 ga_battle_shipwreck_character_name_npc_ally = gb:get_army(gb:get_player_alliance_num(),"battle_shipwreck_character_name_npc_ally"); -- Dragon
 ------------------------------------------ENEMY---------------------------------------------------
-ga_battle_shipwreck_army_nor_unit_all = gb:get_army(gb:get_non_player_alliance_num(),"battle_shipwreck_army_nor_unit_all"); --2x chaos_warhounds + 2x marauder_berserkers
+ga_battle_shipwreck_army_nor_unit_all = gb:get_army(gb:get_non_player_alliance_num(),"battle_shipwreck_army_nor_unit_all"); --Lord, 2x chaos_warhounds + 2x marauder_berserkers
 ga_battle_shipwreck_character_name_nor_1 = gb:get_army(gb:get_non_player_alliance_num(),"battle_shipwreck_character_name_nor_1");-- Lord of mammoth
 ga_battle_shipwreck_army_nor_1_unit_war_mammoth = gb:get_army(gb:get_non_player_alliance_num(),"battle_shipwreck_army_nor_1_unit_war_mammoth"); -- Mammoth in own script group
 ------------------------------------------ENEMY REINFORCEMENT---------------------------------------------------
